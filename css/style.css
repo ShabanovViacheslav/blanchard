@@ -32,6 +32,7 @@
   --dark-color: #000;
   --light-color : #fff;
   --outline-color: #D1A9F0;
+  --subtitle-color: #333;
 }
 
 * {
@@ -66,6 +67,9 @@ a {
   position: relative;
   width: 36px;
   height: 28px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
   outline: 2px solid transparent;
   transition: outline .2s ease-in-out;
 }
@@ -79,16 +83,20 @@ a {
 }
 
 .burger__line_top {
+  top: 0;
+  left: 0;
   width: 100%;
 }
 
 .burger__line_middle {
   top: 40%;
+  left: 0;
   width: 80%;
 }
 
 .burger__line_bottom {
   bottom: 0;
+  left: 0;
   width: 65%;
 }
 
@@ -101,12 +109,15 @@ a {
 }
 
 .logo {
+  background-image: url(../img/logo.png);
   outline: 2px solid transparent;
   transition: outline .2s ease-in-out;
 }
 
 .logo_style {
-  margin: 30px 179px 28px 160px;
+  width: 173px;
+  height: 40px;
+  margin: 30px 179px 31px 160px;
 }
 
 .logo:focus {
@@ -404,13 +415,13 @@ a {
   background-image: url(../img/birmingham1.jpg);
 }
 
-.swiper-slide_middle {
+/* .swiper-slide_middle {
   background-image: url(../img/birmingham2.jpg);
 }
 
 .swiper-slide_bottom {
   background-image: url(../img/birmingham3.jpg);
-}
+} */
 
 @keyframes zoom {
   10% {
@@ -426,13 +437,14 @@ a {
   }
 }
 
-.swiper-slide-active {
+/* .swiper-slide-active {
   z-index: 1;
-}
+} */
 
 /* swiper end */
 
 .hero__container {
+  padding-bottom: 122px;
   position: absolute;
   top: 0;
   z-index: 2;
@@ -461,7 +473,7 @@ a {
 
 .container-button {
   position: relative;
-  margin-bottom: 122px;
+  /* margin-bottom: 122px; */
   margin-left: 160px;
 }
 
@@ -491,7 +503,7 @@ a {
   border-color: var(--outline-color);
 }
 
-.button__outline {
+.container-button__outline {
   position: absolute;
   z-index: 0;
   top: -4.5px;
@@ -509,9 +521,34 @@ a {
   transition-timing-function: ease-in-out;
 }
 
-.button_hero:focus + .button__outline {
+.button_hero:focus + .container-button__outline {
   opacity: 1;
   visibility: visible;
+}
+
+/* about */
+
+.container_style {
+  padding: 86px 157px;
+}
+
+.subtitle {
+  margin-bottom: 20px;
+  font-weight: normal;
+  font-size: 48px;
+  color: var(--subtitle-color);
+}
+
+.text {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 32px;
+  color: var(--subtitle-color);
+}
+
+.text_about {
+  margin-left: 2px;
+  width: 67%;
 }
 
 @media (min-width: 1920px) {
@@ -561,13 +598,19 @@ a {
   .header__content {
     padding: 0 50px;
   }
+  .logo {
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
   .logo_style {
+    margin-bottom: 28px;
     margin-left: 332px;
     width: 187px;
+    height: 42px;
   }
-  .logo_style > svg {
+  /* .logo_style > svg {
     width: 100%;
-  }
+  } */
   .header__group {
     position: absolute;
     top: 0;
@@ -589,16 +632,22 @@ a {
   }
   .close {
     display: block;
-    margin-bottom: 45px;
+    margin-bottom: 52px;
   }
   .close__link {
     position: relative;
     display: inline-block;
     width: 29px;
     height: 29px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
     outline: 2px solid transparent;
     transition: outline .2s ease-in-out;
   }
+  /* .close__link_menu {
+    margin-bottom: 50px;
+  } */
   .close__link:focus {
     outline: 2px solid var(--active-color);
   }
@@ -729,14 +778,14 @@ a {
   .swiper-slide_top {
     background-image: url(../img/birmingham1-1024.jpg);
   }
-  .swiper-slide_middle {
+  /* .swiper-slide_middle {
     background-image: url(../img/birmingham2-1024.jpg);
   }
   .swiper-slide_bottom {
     background-image: url(../img/birmingham3-1024.jpg);
-  }
+  } */
   .title {
-    padding-top: 110px;
+    padding-top: 113px;
     padding-bottom: 11px;
     padding-left: 44px;
   }
@@ -747,6 +796,15 @@ a {
   }
   .container-button {
     margin-left: 51px;
+  }
+  .container_style {
+    padding: 86px 47px 70px;
+  }
+  .subtitle {
+    margin-bottom: 21px;
+  }
+  .text_about {
+    width: 99%;
   }
 }
 
@@ -760,6 +818,12 @@ a {
   .header__group {
     width: 768px;
   }
+  .close {
+    margin-bottom: 47px;
+  }
+  /* .close__link_menu {
+    margin-bottom: 48px;
+  } */
   .nav__list_top > .nav__item:last-child {
     margin-bottom: 150px;
   }
@@ -798,14 +862,17 @@ a {
   .swiper-slide_top {
     background-image: url(../img/birmingham1-768.jpg);
   }
-  .swiper-slide_middle {
+  /* .swiper-slide_middle {
     background-image: url(../img/birmingham2-768.jpg);
   }
   .swiper-slide_bottom {
     background-image: url(../img/birmingham3-768.jpg);
-  }
+  } */
   .hero__description {
     width: 100%;
+  }
+  .container_style {
+    padding: 85px 50px 70px;
   }
 }
 
@@ -824,21 +891,26 @@ a {
     height: 2px;
   }
   .logo_style {
-    margin: 12px 0 8px 77px;
+    margin: 12px 0 12px 77px;
     width: 97px;
+    height: 21.67px;
   }
-  .logo_style > svg {
+  /* .logo_style > svg {
     height: 100%;
-  }
+  } */
   .header__group {
     padding: 15px 15px 27px;
     width: 320px;
     height: 355px;
   }
   .close_menu {
-    margin-bottom: 20px;
+    margin-bottom: 13px;
   }
+  /* .close__link_menu {
+    margin-bottom: 23px;
+  } */
   .close__link {
+    top: -8px;
     width: 15px;
     height: 15px;
   }
@@ -912,12 +984,12 @@ a {
   .swiper-slide_top {
     background-image: url(../img/birmingham1-320.jpg);
   }
-  .swiper-slide_middle {
+  /* .swiper-slide_middle {
     background-image: url(../img/birmingham2-320.jpg);
   }
   .swiper-slide_bottom {
     background-image: url(../img/birmingham3-320.jpg);
-  }
+  } */
   .title {
     padding-top: 33px;
     padding-bottom: 13px;
@@ -942,8 +1014,22 @@ a {
     padding: 10px 15px 10px 17px;
     font-size: 12px;
   }
-  .button__outline {
+  .container-button__outline {
     width: 210px;
     height: 48px;
+  }
+  .container_style {
+    padding: 53px 13px 41px 14px;
+  }
+  .subtitle {
+    margin-bottom: 15px;
+    font-size: 28px;
+  }
+  .text {
+    font-size: 14px;
+    line-height: 28px;
+  }
+  .text_about {
+    margin-left: 1px;
   }
 }

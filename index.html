@@ -7,7 +7,7 @@
   <title>Blanchard. Художественная галерея</title>
   <link rel="stylesheet" href="/css/normalize.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css">
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
   <link rel="stylesheet" href="/css/style.css">
   <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -18,11 +18,13 @@
   <header class="header">
     <div class="header__block">
       <div class="container header__content">
-        <a href="#" class="burger">
-          <span class="burger__line burger__line_top"></span><span class="burger__line burger__line_middle"></span><span class="burger__line burger__line_bottom"></span>
-        </a>
+        <button href="#" class="burger">
+          <span class="burger__line burger__line_top"></span>
+          <span class="burger__line burger__line_middle"></span>
+          <span class="burger__line burger__line_bottom"></span>
+        </button>
         <a class="logo logo_style" href="#" aria-label="Логотип Blanchard. Художественная галерея">
-          <svg width="173" height="40" viewbox="0 0 173 40" fill="none" xmlns="http://www.w3.org/2000/svg" preserveaspectratio="none">
+          <!-- <svg width="173" height="40" viewbox="0 0 173 40" fill="none" xmlns="http://www.w3.org/2000/svg" preserveaspectratio="none">
             <path d="M2.78965 32.7802L0.289746 29.1348H2.09561L3.79365 31.7425L5.50518 29.1348H7.29756L4.79092 32.7802L7.42559 36.5873H5.6332L3.79365 33.7977L1.96084 36.5873H0.168457L2.78965 32.7802Z" fill="white"/>
             <path d="M7.60078 29.1348H9.32578L10.8419 33.3597C11.071 33.9616 11.2237 34.5276 11.3001 35.0577H11.354C11.3944 34.8106 11.4686 34.5119 11.5764 34.1615C11.6842 33.8066 12.2547 32.1311 13.2879 29.1348H14.9994L11.8122 37.5778C11.2327 39.1276 10.2669 39.9025 8.91475 39.9025C8.56436 39.9025 8.22295 39.8644 7.89053 39.788V38.5347C8.12861 38.5886 8.40039 38.6155 8.70586 38.6155C9.46953 38.6155 10.0063 38.173 10.3163 37.2881L10.5926 36.5873L7.60078 29.1348Z" fill="white"/>
             <path d="M23.2808 39.222H21.8051V36.5873H16.6975V39.222H15.2353V35.3609H15.8417C16.3718 34.6018 16.7918 33.6854 17.1018 32.6117C17.4162 31.5336 17.6026 30.3746 17.661 29.1348H22.1892V35.3609H23.2808V39.222ZM20.6326 35.3609V30.3477H19.0289C18.9436 31.273 18.7639 32.185 18.4898 33.0834C18.2203 33.9818 17.8901 34.741 17.4993 35.3609H20.6326Z" fill="white"/>
@@ -53,41 +55,42 @@
             <path d="M123.803 22C127.466 22 130.132 20.3801 131.114 17.6339L131.426 17.7111C130.833 20.7041 131.457 22 135.043 22C135.495 22 135.947 21.9537 136.321 21.892L136.851 19.223L136.072 19.2076C135.214 19.1921 134.965 18.9916 134.965 17.8962V10.4755C134.965 6.80365 132.502 5.04488 127.248 5.04488C121.667 5.04488 118.845 7.2202 119.079 10.9846L123.553 11.3548C123.366 8.87097 124.644 7.74474 127.154 7.74474C129.399 7.74474 130.459 8.56241 130.459 10.4292V11.3394L126.032 12.1417C121.604 12.9593 118.673 14.3478 118.673 17.7419V17.7882C118.673 20.4727 120.513 22 123.803 22ZM125.611 19.007C124.083 19.007 123.257 18.467 123.257 17.3562V17.3254C123.257 15.7363 124.707 15.0884 127.575 14.533L130.459 13.9776V14.7335C130.459 17.2174 128.199 19.007 125.611 19.007Z" fill="white"/>
             <path d="M140.669 21.5989H145.205V14.8261C145.205 10.5989 146.53 9.04067 149.991 8.79383L152.221 8.62412L151.691 4.8906C148.027 5.1683 146.328 6.30996 144.644 9.67321L144.348 9.53436C145.081 7.37447 145.252 6.51052 145.221 5.39972H140.669V21.5989Z" fill="white"/>
             <path d="M162.243 21.892C165.61 21.892 167.809 20.3492 168.915 17.5568L169.243 17.6648C168.713 19.3619 168.432 20.7041 168.417 21.5989H173V0H168.463V4.39691C168.463 6.09397 168.697 7.46704 169.258 9.3338L168.947 9.45722C167.84 6.68022 165.626 5.07574 162.243 5.07574C157.566 5.07574 155.103 7.89902 155.103 13.2987V13.6844C155.103 19.0687 157.566 21.892 162.243 21.892ZM163.958 19.115C161.152 19.115 159.686 17.3408 159.686 13.8387V13.129C159.686 9.6115 161.152 7.82188 163.958 7.82188C166.889 7.82188 168.463 9.70407 168.463 13.2062V13.7616C168.463 17.2482 166.889 19.115 163.958 19.115Z" fill="white"/>
-          </svg>
+          </svg> -->
         </a>
         <div class="header__group">
           <div class="close close_menu">
-            <a href="#" class="close__link">
-              <span class="close__line close__line_left"></span><span class="close__line close__line_rigth"></span>
-            </a>
+            <button href="#" class="close__link">
+              <span class="close__line close__line_left"></span>
+              <span class="close__line close__line_rigth"></span>
+            </button>
           </div>
           <nav class="nav nav_top">
             <ul class="nav__list nav__list_top">
               <li class="nav__item">
-                <a class="nav__link" href="#" aria-label="Ссылка о нас">О нас</a>
+                <a class="nav__link" href="#">О нас</a>
               </li>
               <li class="nav__item">
-                <a class="nav__link" href="#" aria-label="Ссылка галерея">Галерея</a>
+                <a class="nav__link" href="#">Галерея</a>
               </li>
               <li class="nav__item">
-                <a class="nav__link" href="#" aria-label="Ссылка каталог">Каталог</a>
+                <a class="nav__link" href="#">Каталог</a>
               </li>
               <li class="nav__item">
-                <a class="nav__link" href="#" aria-label="Ссылка события">События</a>
+                <a class="nav__link" href="#">События</a>
               </li>
               <li class="nav__item">
-                <a class="nav__link" href="#" aria-label="Ссылка издания">Издания</a>
+                <a class="nav__link" href="#">Издания</a>
               </li>
               <li class="nav__item">
-                <a class="nav__link" href="#" aria-label="Ссылка проекты">Проекты</a>
+                <a class="nav__link" href="#">Проекты</a>
               </li>
               <li class="nav__item">
-                <a class="nav__link" href="#" aria-label="Ссылка контакты">Контакты</a>
+                <a class="nav__link" href="#">Контакты</a>
               </li>
             </ul>
           </nav>
           <div class="header__box">
-            <a class="header__login" href="#" aria-label="Ссылка войти в личный кабинет">Войти</a>
+            <a class="header__login" href="#">Войти</a>
             <svg class="header__svg" width="13" height="13" viewbox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M5.12056 9.09278L6.13889 10.1111L9.75 6.5L6.13889 2.88889L5.12056 3.90722L6.98389 5.77778H0V7.22222H6.98389L5.12056 9.09278ZM11.5556 0H1.44444C0.642778 0 0 0.65 0 1.44444V4.33333H1.44444V1.44444H11.5556V11.5556H1.44444V8.66667H0V11.5556C0 12.35 0.642778 13 1.44444 13H11.5556C12.35 13 13 12.35 13 11.5556V1.44444C13 0.65 12.35 0 11.5556 0Z" fill="white"/>
             </svg>
@@ -100,84 +103,164 @@
       <nav class="nav nav_bottom">
         <ul class="nav__list nav__list_bottom">
           <li class="nav__item">
-            <a href="#" class="nav__link nav__link_bottom" area-label="Выпадающий список реализм">Реализм</a>
+            <a href="#" class="nav__link nav__link_bottom">Реализм</a>
             <div class="dropdown">
               <ul class="dropdown__list">
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle57.jpg);" area-label="Ссылка Тинторетто">Тинторетто</a></li>
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle58.jpg);" area-label="Ссылка Фридрих">Фридрих</a></li>
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle59.jpg);" area-label="Ссылка Леонардо">Леонардо</a></li>
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle60.jpg);" area-label="Ссылка Верроккьо">Верроккьо</a></li>
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle57.jpg);" area-label="Ссылка Тинторетто">Тинторетто</a></li>
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle58.jpg);" area-label="Ссылка Фридрих">Фридрих</a></li>
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle59.jpg);" area-label="Ссылка Леонардо">Леонардо</a></li>
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle60.jpg);" area-label="Ссылка Верроккьо">Верроккьо</a></li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle57.jpg);">Тинторетто</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle58.jpg);">Фридрих</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle59.jpg);">Леонардо</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle60.jpg);">Верроккьо</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle57.jpg);">Тинторетто</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle58.jpg);">Фридрих</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle59.jpg);">Леонардо</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle60.jpg);">Верроккьо</a>
+                </li>
               </ul>
             </div>
           </li>
           <li class="nav__item nav__item_bottom">
-            <a href="#" class="nav__link nav__link_bottom" area-label="Выпадающий список импрессионизм">Импрессионизм</a>
+            <a href="#" class="nav__link nav__link_bottom">Импрессионизм</a>
             <div class="dropdown">
               <ul class="dropdown__list">
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle61.jpg);" area-label="Ссылка Моне">Моне</a></li>
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle62.jpg);" area-label="Ссылка Сислей">Сислей</a></li>
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle63.jpg);" area-label="Ссылка Мане">Мане</a></li>
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle64.jpg);" area-label="Ссылка Ренуар">Ренуар</a></li>
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle61.jpg);" area-label="Ссылка Моне">Моне</a></li>
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle62.jpg);" area-label="Ссылка Сислей">Сислей</a></li>
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle63.jpg);" area-label="Ссылка Мане">Мане</a></li>
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle64.jpg);" area-label="Ссылка Ренуар">Ренуар</a></li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle61.jpg);">Моне</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle62.jpg);">Сислей</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle63.jpg);">Мане</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle64.jpg);">Ренуар</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle61.jpg);">Моне</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle62.jpg);">Сислей</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle63.jpg);">Мане</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle64.jpg);">Ренуар</a>
+                </li>
               </ul>
             </div>
           </li>
           <li class="nav__item nav__item_bottom">
-            <a href="#" class="nav__link nav__link_bottom" area-label="Выпадающий список постимпрессионизм">Постимпрессионизм</a>
+            <a href="#" class="nav__link nav__link_bottom">Постимпрессионизм</a>
             <div class="dropdown">
               <ul class="dropdown__list">
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle65.jpg);" area-label="Ссылка Ван Гог">Ван Гог</a></li>
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle66.jpg);" area-label="Ссылка Сезанн">Сезанн</a></li>
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle67.jpg);" area-label="Ссылка Гоген">Гоген</a></li>
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle68.jpg);" area-label="Ссылка Сёра">Сёра</a></li>
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle65.jpg);" area-label="Ссылка Ван Гог">Ван Гог</a></li>
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle66.jpg);" area-label="Ссылка Сезанн">Сезанн</a></li>
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle67.jpg);" area-label="Ссылка Гоген">Гоген</a></li>
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle68.jpg);" area-label="Ссылка Сёра">Сёра</a></li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle65.jpg);">Ван Гог</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle66.jpg);">Сезанн</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle67.jpg);">Гоген</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle68.jpg);">Сёра</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle65.jpg);">Ван Гог</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle66.jpg);">Сезанн</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle67.jpg);">Гоген</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle68.jpg);">Сёра</a>
+                </li>
               </ul>
             </div>
           </li>
           <li class="nav__item nav__item_bottom">
-            <a href="#" class="nav__link nav__link_bottom" area-label="Выпадающий список авангард">Авангард</a>
+            <a href="#" class="nav__link nav__link_bottom">Авангард</a>
             <div class="dropdown">
               <ul class="dropdown__list">
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle69.jpg);" area-label="Ссылка Кандинский">Кандинский</a></li>
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle70.jpg);" area-label="Ссылка Маринетти">Маринетти</a></li>
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle71.jpg);" area-label="Ссылка Малевич">Малевич</a></li>
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle72.jpg);" area-label="Ссылка Пикассо">Пикассо</a></li>
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle69.jpg);" area-label="Ссылка Кандинский">Кандинский</a></li>
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle70.jpg);" area-label="Ссылка Маринетти">Маринетти</a></li>
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle71.jpg);" area-label="Ссылка Малевич">Малевич</a></li>
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle72.jpg);" area-label="Ссылка Пикассо">Пикассо</a></li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle69.jpg);">Кандинский</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle70.jpg);">Маринетти</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle71.jpg);">Малевич</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle72.jpg);">Пикассо</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle69.jpg);">Кандинский</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle70.jpg);">Маринетти</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle71.jpg);">Малевич</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle72.jpg);">Пикассо</a>
+                </li>
               </ul>
             </div>
           </li>
           <li class="nav__item nav__item_bottom">
-            <a href="#" class="nav__link nav__link_bottom" area-label="Выпадающий список футуризм">Футуризм</a>
+            <a href="#" class="nav__link nav__link_bottom">Футуризм</a>
             <div class="dropdown">
               <ul class="dropdown__list">
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle73.jpg);" area-label="Ссылка Карра">Карра</a></li>
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle74.jpg);" area-label="Ссылка Прателла">Прателла</a></li>
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle75.jpg);" area-label="Ссылка Северини">Северини</a></li>
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle76.jpg);" area-label="Ссылка Балла">Балла</a></li>
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle73.jpg);" area-label="Ссылка Карра">Карра</a></li>
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle74.jpg);" area-label="Ссылка Прателла">Прателла</a></li>
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle75.jpg);" area-label="Ссылка Северини">Северини</a></li>
-                <li class="dropdown__item"><a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle76.jpg);" area-label="Ссылка Балла">Балла</a></li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle73.jpg);">Карра</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle74.jpg);">Прателла</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle75.jpg);">Северини</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle76.jpg);">Балла</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle73.jpg);">Карра</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle74.jpg);">Прателла</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle75.jpg);">Северини</a>
+                </li>
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link" style="background-image: url(/img/Rectangle76.jpg);">Балла</a>
+                </li>
               </ul>
             </div>
           </li>
         </ul>
       </nav>
       <form class="header__form">
-        <button class="header__search" type="submit" aria-label="Кнопка поиска по сайту">
+        <button class="header__search" type="submit" aria-label="Поиск по сайту">
           <svg width="23" height="22" viewbox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg" preserveaspectratio="none">
             <rect width="6.8678" height="1.71695" transform="matrix(-0.718931 0.695081 0.718931 0.695081 4.9375 15.6534)" fill="white"/>
             <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0969 18C7.53041 18 3.99692 14.3229 3.99692 10C3.99692 5.67715 7.53041 2 12.0969 2C16.6634 2 20.1969 5.67715 20.1969 10C20.1969 14.3229 16.6634 18 12.0969 18ZM12.0969 20C6.57408 20 2.09692 15.5228 2.09692 10C2.09692 4.47715 6.57408 0 12.0969 0C17.6198 0 22.0969 4.47715 22.0969 10C22.0969 15.5228 17.6198 20 12.0969 20Z" fill="white"/>
@@ -186,9 +269,10 @@
         <input class="header__input" type="text" placeholder="Поиск по сайту" aria-label="Поле ввода поиска по сайту">
       </form>
       <div class="close close_search">
-        <a href="#" class="close__link">
-          <span class="close__line close__line_left"></span><span class="close__line close__line_rigth"></span>
-        </a>
+        <button href="#" class="close__link">
+          <span class="close__line close__line_left"></span>
+          <span class="close__line close__line_rigth"></span>
+        </button>
       </div>
     </div>
   </header>
@@ -199,20 +283,25 @@
       <div class="swiper-container">
         <div class="swiper-wrapper">
           <div class="swiper-slide swiper-slide_top"></div>
-          <div class="swiper-slide swiper-slide_middle"></div>
-          <div class="swiper-slide swiper-slide_bottom"></div>
+          <!-- <div class="swiper-slide swiper-slide_middle"></div>
+          <div class="swiper-slide swiper-slide_bottom"></div> -->
         </div>
       </div>
       <div class="hero__container">
         <h1 class="title">Прикоснитесь<br>к прекрасному</h1>
-      <p class="hero__description">
-        Мы вынуждены отталкиваться от того, что реализация намеченных плановых заданий создаёт предпосылки для новых предложений.
-      </p>
-      <div class="container-button">
-        <a class="button button_hero" href="#" aria-label="Ссылка подписаться на рассылку">Подписаться на рассылку</a>
-        <span class="button__outline"></span>
+        <p class="hero__description">
+          Мы вынуждены отталкиваться от того, что реализация намеченных плановых заданий создаёт предпосылки для новых предложений.
+        </p>
+        <div class="container-button">
+          <a class="button button_hero" href="#">Подписаться на рассылку</a>
+          <span class="container-button__outline"></span>
+        </div>
       </div>
-      </div>
+    </section>
+
+    <section class="container container_style about">
+      <h2 class="subtitle subtitle_about">О нас</h2>
+      <p class="text text_about">Ясность нашей позиции очевидна: семантический разбор внешних противодействий однозначно определяет каждого участника как способного принимать собственные решения касаемо распределения внутренних резервов и ресурсов. Не следует, однако, забывать, что высококачественный прототип будущего проекта влечет за собой процесс внедрения и модернизации модели развития. Повседневная практика показывает, что высокое качество позиционных исследований создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса распределения внутренних резервов и ресурсов. В рамках спецификации современных стандартов, действия представителей оппозиции набирают популярность среди определенных слоев населения, а значит, должны быть разоблачены.</p>
     </section>
 
   </main>

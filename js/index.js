@@ -42,14 +42,14 @@ document.addEventListener('DOMContentLoaded', function(){
   }
 
 
-  new Swiper('.swiper-container', {
-    loop: true,
-    autoplay: {
-      delay: 10000,
-    },
-    speed: 500,
-    allowTouchMove: false,
-  });
+  // new Swiper('.swiper-container', {
+  //   loop: true,
+  //   autoplay: {
+  //     delay: 10000,
+  //   },
+  //   speed: 500,
+  //   allowTouchMove: false,
+  // });
 
 
   let burgerElement = document.querySelector('.burger');
