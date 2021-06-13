@@ -50,14 +50,17 @@ a {
 
 /* header */
 
-.header__block {
+.header__block_top {
   background-color: var(--dark-color);
 }
 
 .container {
-  width: 1920px;
+  max-width: 3840px;
+  min-width: 1920px;
   margin: 0 auto;
+  padding: 0 160px;
 }
+
 .header__content {
   display: flex;
   align-items: center;
@@ -100,24 +103,23 @@ a {
   width: 65%;
 }
 
-/* .burger:hover > .burger__line {
-  background-color: var(--hover-color);
-} */
-
 .burger:active > .burger__line {
   background-color: var(--active-color);
 }
 
 .logo {
   background-image: url(../img/logo.png);
+  background-repeat: no-repeat;
   outline: 2px solid transparent;
   transition: outline .2s ease-in-out;
 }
 
 .logo_style {
-  width: 173px;
+  min-width: 173px;
   height: 40px;
-  margin: 30px 179px 31px 160px;
+  margin-top: 30px;
+  margin-right: 11.3%;
+  margin-bottom: 30px;
 }
 
 .logo:focus {
@@ -127,6 +129,9 @@ a {
 .header__group {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-width: 1246px;
 }
 
 .nav__list {
@@ -137,7 +142,7 @@ a {
 }
 
 .nav__list_top > .nav__item:not(:last-child) {
-  margin-right: 62px;
+  margin-right: 11.9%;
 }
 
 .nav__link {
@@ -150,14 +155,9 @@ a {
   transition-timing-function: ease-in-out;
 }
 
-.header__box {
-  margin-left: 276px;
-}
-
 .header__svg {
-  position: relative;
-  left: -84px;
-  transform: translateY(-1px);
+  position: absolute;
+  transform: translate(-73px, 3px);
 }
 
 .header__svg > path {
@@ -165,7 +165,6 @@ a {
 }
 
 .header__login {
-  padding-right: 5px;
   padding-left: 26px;
   font-weight: normal;
   font-size: 18px;
@@ -188,42 +187,31 @@ a {
   color: var(--active-color);
 }
 
-.header__login:active {
-  color: var(--hover-main-color);
-}
-
-.header__login:active + .header__svg > path {
-  fill: var(--hover-main-color);
+.header__block_bottom {
+  position: absolute;
+  z-index: +1;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .container_header-bottom {
-  position: absolute;
-  left: 50%;
   z-index: 3;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: rgba(0, 0, 0, 0.4);
-  transform: translateX(-50%);
 }
 
 .nav_bottom {
-  padding-top: 25px;
-  padding-bottom: 25px;
-}
-
-.nav__list_bottom {
-  margin-left: 152px;
+  padding: 25px 0;
 }
 
 .nav__list_bottom > .nav__item:not(:last-child) {
-  margin-right: 88px;
+  margin-right: 14.2%;
 }
 
 .nav__link_bottom {
   display: inline-block;
   padding-right: 19px;
-  padding-left: 6px;
   font-weight: normal;
 }
 
@@ -238,14 +226,6 @@ a {
   border-bottom: 1px solid var(--light-color);
   transform: rotate(45deg);
   transition: border-color .2s ease-in-out;
-}
-
-.nav__link_bottom:active {
-  color: var(--active-color);
-}
-
-.nav__link_bottom:active::after {
-  border-color: var(--active-color);
 }
 
 .nav__link_bottom-open::after {
@@ -333,7 +313,6 @@ a {
 
 .header__form {
   margin-top: 8px;
-  margin-right: 162px;
 }
 
 .header__search {
@@ -385,17 +364,51 @@ a {
 .header__search:focus,
 .header__input:focus {
   outline: 2px solid var(--active-color);
+  border-color: var(--active-color);
 }
 
 /* hero */
 
 .hero {
   position: relative;
+  overflow: hidden;
+}
+
+.hero__back {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background-image: url(../img/birmingham1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  transform-origin: center;
+  animation-name: zoom;
+  animation-duration: 10s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+
+@keyframes zoom {
+  10% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  90% {
+    transform: scale(1);
+  }
 }
 
 /* swiper begin */
 
-.swiper-container {
+/* .swiper-container {
   width: 100%;
   height: 700px;
 }
@@ -413,7 +426,7 @@ a {
 
 .swiper-slide_top {
   background-image: url(../img/birmingham1.jpg);
-}
+} */
 
 /* .swiper-slide_middle {
   background-image: url(../img/birmingham2.jpg);
@@ -423,38 +436,19 @@ a {
   background-image: url(../img/birmingham3.jpg);
 } */
 
-@keyframes zoom {
-  10% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.05);
-  }
-
-  90% {
-    transform: scale(1);
-  }
-}
-
 /* .swiper-slide-active {
   z-index: 1;
 } */
 
 /* swiper end */
 
-.hero__container {
-  padding-bottom: 122px;
-  position: absolute;
-  top: 0;
-  z-index: 2;
+.container_hero {
+  padding: 141px 0 122px 155px;
 }
 
 .title {
   margin: 0;
-  padding-top: 141px;
   padding-bottom: 16px;
-  padding-left: 155px;
   font-weight: 700;
   font-size: 72px;
   line-height: 84px;
@@ -463,8 +457,8 @@ a {
 
 .hero__description {
   padding-bottom: 92px;
-  padding-left: 160px;
-  width: 50%;
+  padding-left: 5px;
+  width: 35%;
   font-weight: 700;
   font-size: 18px;
   line-height: 30px;
@@ -473,8 +467,7 @@ a {
 
 .container-button {
   position: relative;
-  /* margin-bottom: 122px; */
-  margin-left: 160px;
+  margin-left: 5px;
 }
 
 .button {
@@ -528,12 +521,13 @@ a {
 
 /* about */
 
-.container_style {
-  padding: 86px 157px;
+.container_about {
+  padding-top: 86px;
+  padding-bottom: 86px;
 }
 
 .subtitle {
-  margin-bottom: 20px;
+  margin-bottom: 23px;
   font-weight: normal;
   font-size: 48px;
   color: var(--subtitle-color);
@@ -547,8 +541,7 @@ a {
 }
 
 .text_about {
-  margin-left: 2px;
-  width: 67%;
+  width: 68%;
 }
 
 @media (min-width: 1920px) {
@@ -562,8 +555,17 @@ a {
   .header__login:hover {
     color: var(--hover-color);
   }
+  .nav__link:active {
+    color: var(--active-color);
+  }
   .header__login:hover + .header__svg > path {
     fill: var(--hover-color);
+  }
+  .header__login:active {
+    color: var(--hover-main-color);
+  }
+  .header__login:active + .header__svg > path {
+    fill: var(--hover-main-color);
   }
   .nav__link_bottom:hover {
     color: var(--hover-main-color);
@@ -571,12 +573,14 @@ a {
   .nav__link_bottom:hover::after {
     border-color: var(--hover-main-color);
   }
+  .nav__link_bottom:active {
+    color: var(--active-color);
+  }
+  .nav__link_bottom:active::after {
+    border-color: var(--active-color);
+  }
   .dropdown__link:hover {
     outline-color: var(--hover-main-color);
-  }
-  .header__form:hover > .header__search > svg > rect,
-  .header__form:hover > .header__search > svg > path {
-    fill: var(--hover-color);
   }
   .header__form:hover > .header__input {
     border-bottom-color: var(--hover-color);
@@ -593,24 +597,26 @@ a {
     position: relative;
   }
   .container {
-    width: 1024px;
+    max-width: 1919px;
+    min-width: 1024px;
+    padding: 0 50px;
   }
   .header__content {
-    padding: 0 50px;
+    padding-top: 37px;
+    padding-bottom: 35px;
   }
   .logo {
     background-repeat: no-repeat;
     background-size: cover;
   }
   .logo_style {
-    margin-bottom: 28px;
-    margin-left: 332px;
+    position: absolute;
+    left: 50%;
+    margin: 0;
     width: 187px;
     height: 42px;
+    transform: translateX(-50%);
   }
-  /* .logo_style > svg {
-    width: 100%;
-  } */
   .header__group {
     position: absolute;
     top: 0;
@@ -619,7 +625,8 @@ a {
     padding: 37px 50px 51px;
     flex-direction: column;
     align-items: stretch;
-    width: 1024px;
+    max-width: 1919px;
+    min-width: 1024px;
     height: 768px;
     background-color: rgba(0, 0, 0, 0.9);
     opacity: 0;
@@ -645,9 +652,6 @@ a {
     outline: 2px solid transparent;
     transition: outline .2s ease-in-out;
   }
-  /* .close__link_menu {
-    margin-bottom: 50px;
-  } */
   .close__link:focus {
     outline: 2px solid var(--active-color);
   }
@@ -667,9 +671,6 @@ a {
   .close__line_rigth {
     transform: rotate(-45deg);
   }
-  /* .close__link:hover > .close__line {
-    background-color: var(--hover-color);
-  } */
   .close__link:active > .close__line {
     background-color: var(--active-color);
   }
@@ -700,13 +701,6 @@ a {
   .header__login:focus {
     outline: none;
   }
-  /* .header__login:hover {
-    color: var(--light-color);
-    background-color: var(--hover-main-color);
-  }
-  .header__login:hover + .header__svg > path {
-    fill: var(--light-color);
-  } */
   .header__login:active {
     background-color: var(--active-color);
     border-color: var(--outline-color);
@@ -718,7 +712,7 @@ a {
   .header__outline {
     position: absolute;
     z-index: -1;
-    top: 653px;
+    top: 673px;
     left: 46px;
     width: 265px;
     height: 68px;
@@ -736,11 +730,18 @@ a {
     opacity: 1;
     visibility: visible;
   }
+  .header__block_bottom {
+    position: static;
+    width: auto;
+    background: none;
+  }
   .container_header-bottom {
+    position: absolute;
     top: 0;
-    left: calc(50% + 201px);
-    width: 311px;
-    padding-right: 50px;
+    right: 0;
+    width: 100%;
+    max-width: 418px;
+    min-width: 418px;
     background: none;
     transform: none;
   }
@@ -775,7 +776,7 @@ a {
   .swiper-container {
     height: 667px;
   }
-  .swiper-slide_top {
+  .hero__back {
     background-image: url(../img/birmingham1-1024.jpg);
   }
   /* .swiper-slide_middle {
@@ -784,21 +785,19 @@ a {
   .swiper-slide_bottom {
     background-image: url(../img/birmingham3-1024.jpg);
   } */
+  .container_hero {
+    padding: 113px 0 114px 44px;
+  }
   .title {
-    padding-top: 113px;
     padding-bottom: 11px;
-    padding-left: 44px;
   }
   .hero__description {
     padding-bottom: 133px;
-    padding-left: 49px;
     width: 75%;
   }
-  .container-button {
-    margin-left: 51px;
-  }
-  .container_style {
-    padding: 86px 47px 70px;
+  .container_about {
+    padding-top: 86px;
+    padding-bottom: 70px;
   }
   .subtitle {
     margin-bottom: 21px;
@@ -810,20 +809,16 @@ a {
 
 @media (max-width: 1023px) {
   .container {
-    width: 768px;
-  }
-  .logo_style {
-    margin-left: 204px;
+    max-width: 1023px;
+    min-width: 768px;
   }
   .header__group {
-    width: 768px;
+    max-width: 1023px;
+    min-width: 768px;
   }
   .close {
     margin-bottom: 47px;
   }
-  /* .close__link_menu {
-    margin-bottom: 48px;
-  } */
   .nav__list_top > .nav__item:last-child {
     margin-bottom: 150px;
   }
@@ -833,16 +828,18 @@ a {
   .header__svg {
     left: -175px;
   }
+  .header__outline {
+    left: 47px;
+  }
   .container_header-bottom {
-    left: calc(50% + 304px);
-    width: 80px;
+    width: 100%;
+    max-width: 130px;
+    min-width: 130px;
   }
   .container_header-bottom-open {
-    left: 50%;
-    padding-left: 50px;
-    width: 768px;
+    max-width: 1023px;
+    min-width: 768px;
     background-color: var(--dark-color);
-    transform: translateX(-50%);
   }
   .header__form {
     margin-left: 0;
@@ -859,7 +856,7 @@ a {
   .close_open {
     display: inline-block;
   }
-  .swiper-slide_top {
+  .hero__back {
     background-image: url(../img/birmingham1-768.jpg);
   }
   /* .swiper-slide_middle {
@@ -871,17 +868,21 @@ a {
   .hero__description {
     width: 100%;
   }
-  .container_style {
-    padding: 85px 50px 70px;
+  .container_about {
+    padding-top: 85px;
+    padding-bottom: 70px;
   }
 }
 
 @media (max-width: 767px) {
   .container {
-    width: 320px;
+    max-width: 767px;
+    min-width: 320px;
+    padding: 0 15px;
   }
   .header__content {
-    padding: 0 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
   .burger {
     width: 20px;
@@ -891,24 +892,20 @@ a {
     height: 2px;
   }
   .logo_style {
-    margin: 12px 0 12px 77px;
-    width: 97px;
+    width: 100%;
+    max-width: 97px;
+    min-width: 97px;
     height: 21.67px;
   }
-  /* .logo_style > svg {
-    height: 100%;
-  } */
   .header__group {
     padding: 15px 15px 27px;
-    width: 320px;
+    max-width: 767px;
+    min-width: 320px;
     height: 355px;
   }
   .close_menu {
     margin-bottom: 13px;
   }
-  /* .close__link_menu {
-    margin-bottom: 23px;
-  } */
   .close__link {
     top: -8px;
     width: 15px;
@@ -943,22 +940,21 @@ a {
     height: 9px;
   }
   .header__outline {
-    top: 284.5px;
+    top: 297.5px;
     left: 11.5px;
     width: 121px;
     height: 46px;
   }
   .container_header-bottom {
-    left: calc(50% + 129px);
-    padding-right: 15px;
-    width: 31px;
+    max-width: 46px;
+    min-width: 46px;
   }
   .container_header-bottom-open {
     left: 50%;
     padding-top: 22px;
     padding-bottom: 12px;
-    padding-left: 57px;
-    width: 320px;
+    max-width: 767px;
+    min-width: 320px;
     background: rgba(0, 0, 0, 0.4);
     -webkit-backdrop-filter: blur(40px);
     backdrop-filter: blur(40px);
@@ -966,6 +962,8 @@ a {
   }
   .header__form {
     margin-top: 15px;
+    margin-right: auto;
+    margin-left: auto;
   }
   .header__search {
     width: 16px;
@@ -981,7 +979,7 @@ a {
   .swiper-container {
     height: 310px;
   }
-  .swiper-slide_top {
+  .hero__back {
     background-image: url(../img/birmingham1-320.jpg);
   }
   /* .swiper-slide_middle {
@@ -990,10 +988,11 @@ a {
   .swiper-slide_bottom {
     background-image: url(../img/birmingham3-320.jpg);
   } */
+  .container_hero {
+    padding: 32px 0 46px 0px;
+  }
   .title {
-    padding-top: 33px;
     padding-bottom: 13px;
-    padding-left: 0;
     font-size: 32px;
     line-height: 37px;
     text-align: center;
@@ -1008,7 +1007,8 @@ a {
     text-align: center;
   }
   .container-button {
-    margin-left: 60px;
+    text-align: center;
+    margin-left: 0;
   }
   .button_hero {
     padding: 10px 15px 10px 17px;
@@ -1018,7 +1018,7 @@ a {
     width: 210px;
     height: 48px;
   }
-  .container_style {
+  .container_about {
     padding: 53px 13px 41px 14px;
   }
   .subtitle {
