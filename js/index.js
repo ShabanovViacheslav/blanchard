@@ -95,4 +95,46 @@ document.addEventListener('DOMContentLoaded', function(){
     closeSearchEl.classList.toggle('close_open');
   })
 
+  new Choices(document.querySelector('.gallery__select'), {
+    searchEnabled: false,
+    itemSelectText: '',
+  })
+
+  new Swiper('.swiper-gallery', {
+    // slidesPerView: 3,
+    // slidesPerColumn: 2,
+    // spaceBetween: 50,
+    // loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      type: "fraction",
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 0,
+      },
+      768: {
+        slidesPerView: 2,
+        slidesPerColumn: 2,
+        spaceBetween: 34,
+        slidesPerGroup: 2
+      },
+      // 1024: {
+      //   slidesPerView: 2,
+      //   spaceBetween: 34
+      // },
+      1920: {
+        slidesPerView: 3,
+        slidesPerColumn: 2,
+        spaceBetween: 50,
+        slidesPerGroup: 3
+      }
+    }
+  });
+
 })
