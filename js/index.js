@@ -95,16 +95,14 @@ document.addEventListener('DOMContentLoaded', function(){
     closeSearchEl.classList.toggle('close_open');
   })
 
+
   new Choices(document.querySelector('.gallery__select'), {
     searchEnabled: false,
     itemSelectText: '',
   })
 
+
   new Swiper('.swiper-gallery', {
-    // slidesPerView: 3,
-    // slidesPerColumn: 2,
-    // spaceBetween: 50,
-    // loop: true,
     pagination: {
       el: ".swiper-pagination",
       type: "fraction",
@@ -124,10 +122,6 @@ document.addEventListener('DOMContentLoaded', function(){
         spaceBetween: 34,
         slidesPerGroup: 2
       },
-      // 1024: {
-      //   slidesPerView: 2,
-      //   spaceBetween: 34
-      // },
       1920: {
         slidesPerView: 3,
         slidesPerColumn: 2,
@@ -136,5 +130,44 @@ document.addEventListener('DOMContentLoaded', function(){
       }
     }
   });
+
+
+  document.querySelectorAll('.catalog__country').forEach(function(tabElement){
+    tabElement.addEventListener('click', function(event){
+      let path = event.currentTarget.dataset.path;
+      document.querySelectorAll('.catalog__country').forEach(function(tabElementStyle){
+        tabElementStyle.classList.remove('catalog__country_activ');
+      });
+      document.querySelectorAll('.catalog__container').forEach(function(tabContent){
+        tabContent.classList.remove('catalog__container_activ');
+      });
+      document.querySelector(`[data-target="${path}"]`).classList.add('catalog__container_activ');
+      event.currentTarget.classList.toggle('catalog__country_activ');
+    });
+  });
+
+
+  $( function() {
+    $( ".accordion" ).accordion(
+      {icons: false, collapsible: true, active: 0, heightStyle: "content", header: ".accordion__header"}
+    );
+  } );
+
+
+  document.querySelectorAll('.catalog__container').forEach(function(element){
+    element.querySelectorAll('.catalog__painter').forEach(function(tabElement){
+      tabElement.addEventListener('click', function(event){
+        let path = event.currentTarget.dataset.path;
+        element.querySelectorAll('.catalog__painter').forEach(function(tabElementStyle){
+          tabElementStyle.classList.remove('catalog__painter_activ');
+        });
+        element.querySelectorAll('.catalog__person').forEach(function(tabContent){
+          tabContent.classList.remove('catalog__person_activ');
+        });
+        element.querySelector(`[data-target="${path}"]`).classList.add('catalog__person_activ');
+        event.currentTarget.classList.toggle('catalog__painter_activ');
+      });
+    });
+  })
 
 })
