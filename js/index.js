@@ -170,4 +170,70 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   })
 
+// events section
+
+  let slideElement = document.querySelector('.events__slide_768');
+  let eventElement = document.querySelector('.button_events');
+
+  if(window.innerWidth <= 1023) {
+    slideElement.classList.toggle('events__slide_hide');
+    slideElement.classList.toggle('events__slide_768');
+  }
+
+  window.addEventListener('resize', () => {
+    if(window.innerWidth <= 1023  && eventElement.dataset.status == 'on') {
+        slideElement.classList.add('events__slide_hide');
+      } else {
+        slideElement.classList.remove('events__slide_hide');
+      }
+  });
+
+  let eventsElement = document.querySelectorAll('.events__slide_hide');
+
+  for(let item of eventsElement) {
+    eventElement.addEventListener('click', function(){
+      item.classList.remove('events__slide_hide');
+      eventElement.classList.add('button__events_hide');
+      eventElement.dataset.status = 'off';
+    })
+  }
+
+
+  let sliderElement = document.querySelector('.events__swiper');
+  let mySwiper;
+
+  function mobileSlider() {
+    if(window.innerWidth <= 767 && sliderElement.dataset.mobile == 'false') {
+      mySwiper = new Swiper('.events__swiper', {
+        slidesPerView: 1,
+        loop: true,
+        containerModifierClass: 'events__swiper',
+        slideClass: 'events__slide',
+        wrapperClass: 'events__wrapper',
+        spaceBetween: 20,
+        pagination: {
+          el: '.events__pagination',
+          type: 'bullets',
+          bulletActiveClass: 'events__pagination_bullet-active',
+          bulletClass: 'events__pagination_bullet'
+        }
+      });
+
+      sliderElement.dataset.mobile = 'true';
+    }
+
+    if(window.innerWidth > 767) {
+      sliderElement.dataset.mobile = 'false';
+      if(sliderElement.classList.contains('events__swiperinitialized')) {
+        mySwiper.destroy();
+      }
+    }
+  }
+
+  mobileSlider();
+
+  window.addEventListener('resize', () => {
+    mobileSlider();
+  });
+
 })
