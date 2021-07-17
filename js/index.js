@@ -101,36 +101,38 @@ document.addEventListener('DOMContentLoaded', function(){
     itemSelectText: '',
   })
 
-
-  new Swiper('.swiper-gallery', {
-    pagination: {
-      el: ".swiper-pagination",
-      type: "fraction",
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 0,
+  function gallerySliper () {
+    new Swiper('.swiper-gallery', {
+      pagination: {
+        el: ".swiper-pagination",
+        type: "fraction",
       },
-      768: {
-        slidesPerView: 2,
-        slidesPerColumn: 2,
-        spaceBetween: 34,
-        slidesPerGroup: 2
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
       },
-      1920: {
-        slidesPerView: 3,
-        slidesPerColumn: 2,
-        spaceBetween: 50,
-        slidesPerGroup: 3
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 0,
+        },
+        768: {
+          slidesPerView: 2,
+          slidesPerColumn: 2,
+          spaceBetween: 34,
+          slidesPerGroup: 2
+        },
+        1920: {
+          slidesPerView: 3,
+          slidesPerColumn: 2,
+          spaceBetween: 50,
+          slidesPerGroup: 3
+        }
       }
-    }
-  });
+    });
+  }
 
+  gallerySliper();
 
   document.querySelectorAll('.catalog__country').forEach(function(tabElement){
     tabElement.addEventListener('click', function(event){
@@ -232,8 +234,99 @@ document.addEventListener('DOMContentLoaded', function(){
 
   mobileSlider();
 
+  // public section
+
+  let sliderPublic = document.querySelector('.public__swiper');
+  let swiperPublic;
+
+  function removeStyle(wr, sl) {
+    wr.removeAttribute('style');
+    for(let item of sl) {
+      item.style.width='';
+    }
+  };
+
+  function desctopSlider() {
+    if(window.innerWidth < 768 && sliderPublic.dataset.mobile == 'false'){
+      sliderPublic.dataset.mobile = 'true';
+      if(sliderPublic.classList.contains('swiper-container-initialized')) {
+        swiperPublic.destroy(true, true);
+        // let wrapperElement = document.querySelector('.public__wrapper');
+        // let slideElements = document.querySelectorAll('.public__slide');
+        // removeStyle(wrapperElement, slideElements);
+      }
+    }
+
+    if(window.innerWidth > 767) {
+      swiperPublic = new Swiper('.public__swiper', {
+        pagination: {
+          el: ".public__pagination",
+          type: "fraction",
+        },
+        navigation: {
+          nextEl: '.public__button_next',
+          prevEl: '.public__button_prev',
+          disabledClass: "public__button_disabled",
+        },
+        wrapperClass: 'public__wrapper',
+        slideClass: 'public__slide',
+        a11y: {
+          enabled: false
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 2,
+            slidesOffsetBefore: 31,
+          },
+          1024: {
+            slidesPerView: 2,
+            spaceBetween: 49
+          },
+          1920: {
+            slidesPerView: 3,
+            spaceBetween: 50
+          }
+        },
+        on: {
+          destroy: function() {
+            let wrapperElement = document.querySelector('.public__wrapper');
+            let slideElements = document.querySelectorAll('.public__slide');
+            removeStyle(wrapperElement, slideElements);
+          }
+        }
+      });
+
+      sliderPublic.dataset.mobile = 'false';
+    }
+  };
+
+  desctopSlider();
+
   window.addEventListener('resize', () => {
+    gallerySliper();
     mobileSlider();
+    desctopSlider();
   });
 
+
+  let categoryElement = document.querySelector('.public__category');
+  let itemElement = document.querySelectorAll('.public__item');
+
+  categoryElement.addEventListener('click', () => {
+    for(let item of itemElement) {
+      if(!item.classList.contains('public__item_chose')) {
+        item.classList.toggle('public__item_show');
+
+        let checkElement = item.querySelector('.public__check');
+        checkElement.addEventListener('input', () => {
+          item.classList.toggle('public__item_chose');
+        });
+
+        let closeElement = item.querySelector('.public__close');
+        closeElement.addEventListener('click', () => {
+          //
+        })
+      }
+    }
+  });
 })
