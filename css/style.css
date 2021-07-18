@@ -714,7 +714,8 @@ a {
 }
 
 .gallery__button,
-.public__button {
+.public__button,
+.projects__button {
   position: static;
   width: 30px;
   height: 30px;
@@ -732,18 +733,21 @@ a {
 }
 
 .gallery__button:focus,
-.public__button:focus {
+.public__button:focus,
+.projects__button:focus {
   border-color: var(--dark-color);
 }
 
 .gallery__button:active,
-.public__button:active {
+.public__button:active,
+.projects__button:active {
   background-color: var(--active-color);
   border-color: var(--dark-color);
 }
 
 .gallery__button_prev::after,
-.public__button_prev::after {
+.public__button_prev::after,
+.projects__button_prev::after {
   content: "";
   width: 7px;
   height: 7px;
@@ -753,7 +757,8 @@ a {
 }
 
 .gallery__button_next::after,
-.public__button_next::after {
+.public__button_next::after,
+.projects__button_next::after {
   content: "";
   width: 7px;
   height: 7px;
@@ -1419,7 +1424,8 @@ a {
   padding: 30px 3px;
 }
 
-.public__button_disabled {
+.public__button_disabled,
+.projects__button_disabled {
   opacity: .35;
   cursor: auto;
   pointer-events: none;
@@ -1510,6 +1516,140 @@ a {
   opacity: 1;
   visibility: visible;
 }
+
+/* projects */
+
+.projects {
+  padding-top: 83px;
+}
+
+.subtitle_projects {
+  margin-bottom: 21px;
+}
+
+.text_projects {
+  margin-bottom: 19px;
+  width: 66%;
+}
+
+.projects__tooltip {
+  padding: 0 7px;
+  border: 1px solid var(--hover-main-color);
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition-property: background-color, color;
+  transition-duration: .2s;
+  transition-timing-function: ease-in-out;
+}
+
+.tippy-box[data-theme~='myTheme'] {
+  text-align: center;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--light-color);
+  background-color: var(--hover-main-color);
+  border-radius: 0;
+}
+
+.tippy-box[data-theme~='myTheme'][data-placement^='top'] > .tippy-arrow::before {
+  border-top-color: var(--hover-main-color);
+}
+
+.projects__partners {
+  margin-bottom: 26px;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.projects__box {
+  position: relative;
+  padding: 0 75px;
+}
+
+.projects__swiper {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.projects__wrapper {
+  display: flex;
+  transition-property: transform;
+}
+
+.projects__company {
+  width: 450px;
+  height: 150px;
+  border: 1px solid var(--border-color);
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  filter: grayscale(100%);
+  transition-property: filter, opacity, outline;
+  transition-duration: .2s;
+  transition-timing-function: ease-in-out;
+  cursor: pointer;
+}
+
+.projects__company_freelands {
+  background-image: url(../img/1933.jpg);
+}
+
+.projects__company_institute {
+  background-image: url(../img/2452.jpg);
+}
+
+.projects__company_center {
+  background-image: url(../img/3201.jpg);
+}
+
+.projects__company_wine {
+  background-image: url(../img/41.jpg);
+}
+
+.projects__company_hiscox {
+  background-image: url(../img/577.jpg);
+}
+
+.projects__company_camden {
+  background-image: url(../img/622.jpg);
+}
+
+.projects__company_stassen {
+  background-image: url(../img/71.jpg);
+}
+
+.projects__company_village {
+  background-image: url(../img/86.jpg);
+}
+
+.projects__company_esad {
+  background-image: url(../img/92.jpg);
+}
+
+.projects__company:focus {
+  border-color: var(--hover-main-color);
+}
+
+.projects__company:active {
+  border-color: var(--hover-main-color);
+}
+
+.projects__nav {
+  position: absolute;
+  top: 39%;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 
 @media (min-width: 1920px) {
   .burger {
@@ -1604,11 +1744,13 @@ a {
     transition-timing-function: ease-in-out;
   }
   .gallery__button:hover,
-  .public__button:hover {
+  .public__button:hover,
+  .projects__button:hover {
     background-color: var(--hover-main-color);
   }
   .gallery__button:active,
-  .public__button:active {
+  .public__button:active,
+  .projects__button:active {
     background-color: var(--active-color);
     border-color: var(--dark-color);
   }
@@ -1683,6 +1825,17 @@ a {
   .button_public:active {
     background-color: var(--active-color);
     border-color: var(--outline-color);
+  }
+  .projects__tooltip:hover {
+    background-color: var(--hover-main-color);
+    color: var(--light-color);
+  }
+  .projects__company:hover {
+    opacity: 1;
+    filter: grayscale(0);
+  }
+  .projects__company:active {
+    border-color: var(--hover-main-color);
   }
 }
 
@@ -2065,6 +2218,22 @@ a {
   .container-button__outline_public {
     left: -2px;
   }
+  .projects {
+    padding-top: 87px;
+  }
+  .text_projects {
+    width: 100%;
+  }
+  .projects__box {
+    padding: 0 53px;
+  }
+  .projects__company {
+    width: 384px;
+    height: 128px;
+  }
+  .projects__nav {
+    top: 38%;
+  }
 }
 
 @media (max-width: 1023px) {
@@ -2189,7 +2358,7 @@ a {
   }
   .events {
     padding-top: 75px;
-    padding-bottom: 85px;
+    padding-bottom: 80px;
   }
   .events__wrapper {
     justify-content: space-between;
@@ -2224,9 +2393,14 @@ a {
   }
   .container_public {
     flex-direction: column;
+    padding-top: 89px;
+    padding-bottom: 73px;
   }
   .public__block_left {
     width: 100%;
+  }
+  .subtitle_public {
+    padding-left: 5px;
   }
   .public__list {
     padding-bottom: 25px;
@@ -2239,6 +2413,21 @@ a {
   .public__block_right {
     padding-top: 18px;
     width: 100%;
+  }
+  .text_projects {
+    width: 99%;
+    margin-bottom: 23px;
+  }
+  .projects__partners {
+    margin-bottom: 32px;
+  }
+  .projects__company {
+    width: 264px;
+    height: 106px;
+    background-size: 55%;
+  }
+  .projects__company_wine {
+    background-size: 35%;
   }
 }
 
@@ -2704,5 +2893,28 @@ a {
   .container-button__outline {
     width: 135px;
     height: 46px;
+  }
+  .projects {
+    padding-top: 53px;
+  }
+  .text_projects {
+    width: 100%;
+    margin-bottom: 16px;
+    font-size: 16px;
+    line-height: 32px;
+  }
+  .projects__partners {
+    margin-bottom: 17px;
+    font-size: 18px;
+  }
+  .projects__box {
+    padding: 0 47.5px;
+  }
+  .projects__company {
+    width: 195px;
+    height: 65px;
+  }
+  .projects__nav {
+    top: 25%;
   }
 }

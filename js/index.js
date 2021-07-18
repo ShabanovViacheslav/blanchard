@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function(){
     itemSelectText: '',
   })
 
-  function gallerySliper () {
+  function gallerySlider () {
     new Swiper('.swiper-gallery', {
       pagination: {
         el: ".swiper-pagination",
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   }
 
-  gallerySliper();
+  gallerySlider();
 
   document.querySelectorAll('.catalog__country').forEach(function(tabElement){
     tabElement.addEventListener('click', function(event){
@@ -242,22 +242,13 @@ document.addEventListener('DOMContentLoaded', function(){
   function removeStyle(wr, sl) {
     wr.removeAttribute('style');
     for(let item of sl) {
-      item.style.width='';
+      item.removeAttribute('style');
     }
   };
 
   function desctopSlider() {
-    if(window.innerWidth < 768 && sliderPublic.dataset.mobile == 'false'){
-      sliderPublic.dataset.mobile = 'true';
-      if(sliderPublic.classList.contains('swiper-container-initialized')) {
-        swiperPublic.destroy(true, true);
-        // let wrapperElement = document.querySelector('.public__wrapper');
-        // let slideElements = document.querySelectorAll('.public__slide');
-        // removeStyle(wrapperElement, slideElements);
-      }
-    }
 
-    if(window.innerWidth > 767) {
+    if(window.matchMedia('(min-width: 768px)').matches) {
       swiperPublic = new Swiper('.public__swiper', {
         pagination: {
           el: ".public__pagination",
@@ -295,19 +286,14 @@ document.addEventListener('DOMContentLoaded', function(){
           }
         }
       });
-
-      sliderPublic.dataset.mobile = 'false';
+    } else {
+      if(sliderPublic.classList.contains('swiper-container-initialized')) {
+        swiperPublic.destroy(true, true);
+      }
     }
   };
 
   desctopSlider();
-
-  window.addEventListener('resize', () => {
-    gallerySliper();
-    mobileSlider();
-    desctopSlider();
-  });
-
 
   let categoryElement = document.querySelector('.public__category');
   let itemElement = document.querySelectorAll('.public__item');
@@ -329,4 +315,66 @@ document.addEventListener('DOMContentLoaded', function(){
       }
     }
   });
+
+  // projects section
+
+  function projectsSlider () {
+    new Swiper('.projects__swiper', {
+      navigation: {
+        nextEl: '.projects__button_next',
+        prevEl: '.projects__button_prev',
+        disabledClass: "projects__button_disabled",
+      },
+      wrapperClass: 'projects__wrapper',
+      slideClass: 'projects__slide',
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 34,
+          slidesPerGroup: 2
+        },
+        1024: {
+          slidesPerView: 2,
+          spaceBetween: 50,
+          slidesPerGroup: 2
+        },
+        1920: {
+          slidesPerView: 3,
+          spaceBetween: 50,
+          slidesPerGroup: 3
+        }
+      }
+    });
+  }
+
+  projectsSlider ();
+
+  window.addEventListener('resize', () => {
+    gallerySlider();
+    mobileSlider();
+    desctopSlider();
+    projectsSlider();
+  });
+
+  tippy('#tt1', {
+    content: 'Пример современных тенденций - современная методология разработки',
+    maxWidth: 264,
+    theme: 'myTheme',
+  });
+
+  tippy('#tt2', {
+    content: 'Приятно, граждане, наблюдать, как сделанные на базе аналитики выводы вызывают у вас эмоции',
+    maxWidth: 264,
+    theme: 'myTheme',
+  });
+
+  tippy('#tt3', {
+    content: 'В стремлении повысить качество',
+    maxWidth: 232,
+    theme: 'myTheme',
+  });
+
 })
