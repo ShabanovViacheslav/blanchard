@@ -52,7 +52,8 @@ a {
 
 /* header */
 
-.header__block_top {
+.header__block_top,
+.footer {
   background-color: var(--dark-color);
 }
 
@@ -148,11 +149,12 @@ a {
 }
 
 .nav__link {
+  background-color: transparent;
   font-weight: 600;
   font-size: 18px;
   color: var(--light-color);
   outline: 2px solid transparent;
-  transition-property: color, outline;
+  transition-property: color, outline, background-color;
   transition-duration: .2s;
   transition-timing-function: ease-in-out;
 }
@@ -182,7 +184,8 @@ a {
 .nav__link:focus,
 .header__login:focus,
 .burger:focus {
-  outline: 2px solid var(--active-color);
+  background-color: var(--active-color);
+  color: var(--light-color);
 }
 
 .nav__link:active {
@@ -373,17 +376,24 @@ a {
 
 .hero {
   position: relative;
+}
+
+/* swiper begin */
+
+.hero__slider {
+  width: 100%;
+  height: 700px;
   overflow: hidden;
 }
 
-.hero__back {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  background-image: url(../img/birmingham1.jpg);
+.hero__wrapper {
+  display: flex;
+  height: 100%;
+  transition-property: transform;
+}
+
+.hero__slide {
+  flex-shrink: 0;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
@@ -408,43 +418,28 @@ a {
   }
 }
 
-/* swiper begin */
-
-/* .swiper-container {
-  width: 100%;
-  height: 700px;
-}
-
-.swiper-slide {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: bottom;
-  transform-origin: center;
-  animation-name: zoom;
-  animation-duration: 10s;
-  animation-timing-function: ease;
-  animation-iteration-count: infinite;
-}
-
-.swiper-slide_top {
+.hero__slide_top {
   background-image: url(../img/birmingham1.jpg);
-} */
+}
 
-/* .swiper-slide_middle {
+.hero__slide_middle {
   background-image: url(../img/birmingham2.jpg);
 }
 
-.swiper-slide_bottom {
+.hero__slide_bottom {
   background-image: url(../img/birmingham3.jpg);
-} */
+}
 
-/* .swiper-slide-active {
+.swiper-slide-active {
   z-index: 1;
-} */
+}
 
 /* swiper end */
 
 .container_hero {
+  position: absolute;
+  top: 0;
+  z-index: 2;
   padding: 141px 0 122px 155px;
 }
 
@@ -674,6 +669,7 @@ a {
   position: relative;
   width: 350px;
   height: 100%;
+  border: none;
   cursor: pointer;
 }
 
@@ -690,6 +686,10 @@ a {
   transition-property: background-color, border-color, opacity;
   transition-duration: .2s;
   transition-timing-function: ease-in-out;
+}
+
+.gallery__container:focus {
+  outline: 3px solid var(--active-color);
 }
 
 .gallery__container:active::before {
@@ -733,14 +733,12 @@ a {
 }
 
 .gallery__button:focus,
-.public__button:focus,
-.projects__button:focus {
+.public__button:focus {
   border-color: var(--dark-color);
 }
 
 .gallery__button:active,
-.public__button:active,
-.projects__button:active {
+.public__button:active {
   background-color: var(--active-color);
   border-color: var(--dark-color);
 }
@@ -1249,8 +1247,16 @@ a {
 .events__link {
   position: absolute;
   bottom: 0;
-  padding-bottom: 50px;
-  text-decoration: underline;
+  margin-bottom: 50px;
+  border-bottom: 1px solid var(--hover-main-color);
+  transition-property: color, background-color, border-color;
+  transition-duration: .2s;
+  transition-timing-function: ease-in-out;
+}
+
+.events__link:active {
+  border-bottom-color: var(--subtitle-color);
+  color: var(--subtitle-color);
 }
 
 .button_events {
@@ -1521,6 +1527,7 @@ a {
 
 .projects {
   padding-top: 83px;
+  padding-bottom: 84px;
 }
 
 .subtitle_projects {
@@ -1556,6 +1563,25 @@ a {
 
 .tippy-box[data-theme~='myTheme'][data-placement^='top'] > .tippy-arrow::before {
   border-top-color: var(--hover-main-color);
+}
+
+.projects__link {
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
+  transition-property: color, background-color, border-color;
+  transition-duration: .2s;
+  transition-timing-function: ease-in-out;
+}
+
+.projects__link:focus,
+.events__link:focus {
+  background-color: var(--hover-main-color);
+  color: var(--light-color);
+}
+
+.projects__link:active {
+  border-bottom-color: var(--active-color);
+  color: var(--active-color);
 }
 
 .projects__partners {
@@ -1650,6 +1676,212 @@ a {
   align-items: center;
 }
 
+.projects__button {
+  background-color: #ECECEC;
+  border-color: #ECECEC;
+}
+
+.projects__button:focus {
+  border-color: var(--hover-main-color);
+}
+
+.projects__button:active {
+  background-color: var(--outline-color);
+  border-color: var(--hover-main-color);
+}
+
+/* contacts */
+
+.contacts {
+  padding: 0;
+}
+
+.contacts__box {
+  display: flex;
+}
+
+.subtitle_contacts {
+  padding-left: 160px;
+  margin-bottom: 20px;
+}
+
+.contacts__block_left {
+  padding: 125px 122px 121px 160px;
+  border: 1px solid var(--border-color);
+}
+
+.contacts__location {
+  padding-bottom: 37px;
+}
+
+.contacts__position {
+  margin-bottom: 13px;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.contacts__address {
+  font-weight: normal;
+  font-size: 16px;
+  font-style: normal;
+}
+
+.contacts__feedback,
+.contacts__social {
+  font-weight: normal;
+  font-size: 24px;
+}
+
+.contacts__feedback {
+  margin-bottom: 19px;
+}
+
+.contacts__form {
+  width: 400px;
+  padding-bottom: 41px;
+}
+
+.contacts__name,
+.contacts__phone {
+  width: 100%;
+  padding: 10px 22px;
+  display: block;
+  border: 1px solid var(--subtitle-color);
+  border-radius: 100px;
+  font-weight: normal;
+  font-size: 16px;
+  color: var(--subtitle-color);
+  transition-property: background-color;
+  transition-duration: .2s;
+  transition-timing-function: ease-in-out;
+  cursor: pointer;
+}
+
+.contacts__name::placeholder,
+.contacts__phone::placeholder {
+  font-weight: normal;
+  font-size: 16px;
+  color: #999;
+}
+
+.contacts__name {
+  margin-bottom: 23px;
+}
+
+.contacts__phone {
+  margin-bottom: 22px;
+}
+
+.contacts__name:focus,
+.contacts__phone:focus {
+  background-color: #CACACA;
+}
+
+.contacts__social {
+  margin-bottom: 18px;
+}
+
+.contacts__list {
+  display: flex;
+  list-style: none;
+}
+
+.contacts__item:not(:last-child) {
+  margin-right: 20px;
+}
+
+.contacts__button {
+  padding: 17px 33px;
+  background-color: transparent;
+  border: 2px solid var(--hover-main-color);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--hover-main-color);
+  cursor: pointer;
+  transition-property: border-color, background-color;
+  transition-duration: .2s;
+  transition-timing-function: ease-in-out;
+}
+
+.js-validate-error-label {
+  font-family: 'Open Sans';
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  color: #D11616;
+  background-color: transparent;
+}
+
+.contacts__whatsapp,
+.contacts__telegram {
+  border: 1px solid transparent;
+  border-radius: 50%;
+  transition: border-color .2s ease-in-out;
+}
+
+.contacts__wa-color,
+.contacts__tg-color {
+  transition: opacity .2s ease-in-out;
+}
+
+.contacts__link:focus .contacts__wa-color,
+.contacts__link:focus .contacts__tg-color {
+  opacity: 0.5;
+}
+
+.contacts__link:active .contacts__whatsapp,
+.contacts__link:active .contacts__telegram {
+  border-color: #9643A4;
+}
+
+.contacts__block_right {
+  flex-shrink: 0;
+  flex-grow: 1;
+}
+
+[class*="ground-pane"] {
+  filter: grayscale(1);
+}
+
+/* footer */
+
+.container_footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo_style-footer {
+  min-width: 173px;
+  height: 40px;
+  margin: 49px 0;
+}
+
+.footer__social {
+  display: flex;
+  align-items: center;
+}
+
+.footer__item:not(:last-child) {
+  margin-right: 20px;
+}
+
+.footer__vk-color,
+.footer__instagram-color,
+.footer__facebook-color {
+  transition: fill .2s ease-in-out;
+}
+
+.footer__link:focus .footer__vk-color,
+.footer__link:focus .footer__instagram-color,
+.footer__link:focus .footer__facebook-color {
+  fill: var(--light-color);
+}
+
+.footer__link:active .footer__vk-color,
+.footer__link:active .footer__instagram-color,
+.footer__link:active .footer__facebook-color {
+  fill: var(--hover-main-color);
+}
 
 @media (min-width: 1920px) {
   .burger {
@@ -1744,13 +1976,11 @@ a {
     transition-timing-function: ease-in-out;
   }
   .gallery__button:hover,
-  .public__button:hover,
-  .projects__button:hover {
+  .public__button:hover {
     background-color: var(--hover-main-color);
   }
   .gallery__button:active,
-  .public__button:active,
-  .projects__button:active {
+  .public__button:active {
     background-color: var(--active-color);
     border-color: var(--dark-color);
   }
@@ -1806,6 +2036,14 @@ a {
     transition-duration: .2s;
     transition-timing-function: ease-in-out;
   }
+  .events__link:hover {
+    border-bottom-color: var(--active-color);
+    color: var(--active-color);
+  }
+  .events__link:active {
+    border-bottom-color: var(--subtitle-color);
+    color: var(--subtitle-color);
+  }
   .public__check:hover ~ .public__text {
     color: var(--hover-color);
   }
@@ -1830,12 +2068,44 @@ a {
     background-color: var(--hover-main-color);
     color: var(--light-color);
   }
+  .projects__link:hover {
+    border-bottom-color: var(--hover-main-color);
+  }
+  .projects__link:active {
+    border-bottom-color: var(--active-color);
+    color: var(--active-color);
+  }
   .projects__company:hover {
     opacity: 1;
     filter: grayscale(0);
   }
   .projects__company:active {
     border-color: var(--hover-main-color);
+  }
+  .projects__button:hover {
+    background-color: var(--outline-color);
+  }
+  .projects__button:active {
+    background-color: var(--outline-color);
+    border-color: var(--hover-main-color);
+  }
+  .contacts__name:hover,
+  .contacts__phone:hover {
+    background-color: #EAEAEA;
+  }
+  .contacts__link:hover .contacts__wa-color,
+  .contacts__link:hover .contacts__tg-color {
+    opacity: 0.5;
+  }
+  .footer__link:hover .footer__vk-color,
+  .footer__link:hover .footer__instagram-color,
+  .footer__link:hover .footer__facebook-color {
+    fill: var(--light-color);
+  }
+  .footer__link:active .footer__vk-color,
+  .footer__link:active .footer__instagram-color,
+  .footer__link:active .footer__facebook-color {
+    fill: var(--hover-main-color);
   }
 }
 
@@ -2020,18 +2290,18 @@ a {
   .close_search {
     display: none;
   }
-  /* .swiper-container {
+  .hero__slider {
     height: 667px;
-  } */
-  .hero__back {
+  }
+  .hero__slide_top {
     background-image: url(../img/birmingham1-1024.jpg);
   }
-  /* .swiper-slide_middle {
+  .hero__slide_middle {
     background-image: url(../img/birmingham2-1024.jpg);
   }
-  .swiper-slide_bottom {
+  .hero__slide_bottom {
     background-image: url(../img/birmingham3-1024.jpg);
-  } */
+  }
   .container_hero {
     padding: 111px 0 114px 50px;
   }
@@ -2164,7 +2434,7 @@ a {
     width: 93%;
   }
   .events__link {
-    padding-bottom: 55px;
+    margin-bottom: 55px;
   }
   .public {
     background-image: url(../img/birmingham-museums-trust-1024.jpg);
@@ -2234,6 +2504,33 @@ a {
   .projects__nav {
     top: 38%;
   }
+  .contacts {
+    padding: 83px 0 0 0;
+  }
+  .subtitle_contacts {
+    padding-left: 50px;
+  }
+  .contacts__block_left {
+    padding: 125px 100px 102px 50px;
+  }
+  .contacts__form {
+    width: 335px;
+  }
+  .contacts__item:not(:last-child) {
+    margin-right: 32px;
+  }
+  .contacts__whatsapp,
+  .contacts__telegram,
+  .footer__vk,
+  .footer__instagram,
+  .footer__facebook {
+    width: 58px;
+    height: 58px;
+  }
+
+  .footer__item:not(:last-child) {
+    margin-right: 33px;
+  }
 }
 
 @media (max-width: 1023px) {
@@ -2285,15 +2582,15 @@ a {
   .close_open {
     display: inline-block;
   }
-  .hero__back {
+  .hero__slide_top {
     background-image: url(../img/birmingham1-768.jpg);
   }
-  /* .swiper-slide_middle {
+  .hero__slide_middle {
     background-image: url(../img/birmingham2-768.jpg);
   }
-  .swiper-slide_bottom {
+  .hero__slide_bottom {
     background-image: url(../img/birmingham3-768.jpg);
-  } */
+  }
   .hero__description {
     width: 100%;
   }
@@ -2429,6 +2726,9 @@ a {
   .projects__company_wine {
     background-size: 35%;
   }
+  .contacts__block_left {
+    padding-right: 43px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -2448,7 +2748,8 @@ a {
   .burger__line {
     height: 2px;
   }
-  .logo_style {
+  .logo_style,
+  .logo_style-footer {
     width: 100%;
     max-width: 97px;
     min-width: 97px;
@@ -2533,18 +2834,18 @@ a {
   .close_search {
     margin-top: -38px;
   }
-  /* .swiper-container {
+  .hero__slider {
     height: 310px;
-  } */
-  .hero__back {
+  }
+  .hero__slide_top {
     background-image: url(../img/birmingham1-320.jpg);
   }
-  /* .swiper-slide_middle {
+  .hero__slide_middle {
     background-image: url(../img/birmingham2-320.jpg);
   }
-  .swiper-slide_bottom {
+  .hero__slide_bottom {
     background-image: url(../img/birmingham3-320.jpg);
-  } */
+  }
   .container_hero {
     padding: 32px 0 46px 0px;
   }
@@ -2896,6 +3197,7 @@ a {
   }
   .projects {
     padding-top: 53px;
+    padding-bottom: 51px;
   }
   .text_projects {
     width: 100%;
@@ -2916,5 +3218,86 @@ a {
   }
   .projects__nav {
     top: 25%;
+  }
+  .contacts {
+    padding: 0 0 28px 0;
+  }
+  .subtitle_contacts {
+    padding-left: 15px;
+    margin-bottom: 17px;
+  }
+  .contacts__box {
+    position: relative;
+    flex-direction: column;
+    padding-top: 56px;
+  }
+  .contacts__block_left {
+    order: 2;
+    padding: 0 15px;
+    border: none;
+  }
+  .contacts__location {
+    position: absolute;
+    top: 0;
+  }
+  .contacts__position {
+    margin-bottom: 3px;
+    font-size: 18px;
+  }
+  .contacts__address {
+    font-size: 14px;
+  }
+  .contacts__feedback,
+  .contacts__social {
+    font-size: 18px;
+  }
+  .contacts__feedback {
+    margin-bottom: 23px;
+  }
+  .contacts__form {
+    width: 100%;
+    padding-bottom: 27px;
+  }
+  .contacts__name,
+  .contacts__phone {
+    margin-bottom: 20px;
+  }
+  .contacts__button {
+    padding: 11px 33px;
+    font-size: 12px;
+  }
+  .contacts__social {
+    margin-bottom: 14px;
+  }
+  .contacts__item:not(:last-child) {
+    margin-right: 24px;
+  }
+  .contacts__whatsapp,
+  .contacts__telegram,
+  .footer__vk,
+  .footer__instagram,
+  .footer__facebook {
+    width: 48px;
+    height: 48px;
+  }
+  .contacts__block_right {
+    order: 1;
+    width: 100%;
+    min-height: 320px;
+    margin-bottom: 26px;
+  }
+  .footer {
+    padding-top: 21px;
+  }
+  .container_footer {
+    flex-direction: column;
+    padding-bottom: 4px;
+  }
+  .logo_style-footer {
+    order: 2;
+    margin: 17px auto;
+  }
+  .footer__social {
+    justify-content: center;
   }
 }

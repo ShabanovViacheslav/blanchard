@@ -42,14 +42,20 @@ document.addEventListener('DOMContentLoaded', function(){
   }
 
 
-  // new Swiper('.swiper-container', {
-  //   loop: true,
-  //   autoplay: {
-  //     delay: 10000,
-  //   },
-  //   speed: 500,
-  //   allowTouchMove: false,
-  // });
+  function heroSlider() {
+    new Swiper('.hero__slider', {
+      wrapperClass: 'hero__wrapper',
+      slideClass: 'hero__slide',
+      loop: true,
+      autoplay: {
+        delay: 10000,
+      },
+      speed: 500,
+      allowTouchMove: false,
+    })
+  };
+
+  heroSlider();
 
 
   let burgerElement = document.querySelector('.burger');
@@ -352,13 +358,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
   projectsSlider ();
 
-  window.addEventListener('resize', () => {
-    gallerySlider();
-    mobileSlider();
-    desctopSlider();
-    projectsSlider();
-  });
-
   tippy('#tt1', {
     content: 'Пример современных тенденций - современная методология разработки',
     maxWidth: 264,
@@ -375,6 +374,80 @@ document.addEventListener('DOMContentLoaded', function(){
     content: 'В стремлении повысить качество',
     maxWidth: 232,
     theme: 'myTheme',
+  });
+
+  // contacts section
+
+  function getLocation() {
+    if(window.matchMedia('(max-width: 767px)').matches) {
+      return [55.761011994387864,37.61218414865425]
+    }
+    if(window.matchMedia('(max-width: 1023px)').matches) {
+      return [55.76161693131021,37.606733899935975]
+    }
+    if(window.matchMedia('(max-width: 1919px)').matches) {
+      return [55.76188310057035,37.614415746554634]
+    }
+    if(window.matchMedia('(min-width: 1920px)').matches) {
+      return [55.760467543099786,37.63761149011543]
+    }
+  };
+
+  function init(){
+    var myMap = new ymaps.Map("map", {
+      center: getLocation(),
+      zoom: 14,
+      controls: [],
+    });
+
+    var myPlacemark = new ymaps.Placemark([55.758468, 37.601088], {}, {
+      iconLayout: 'default#image',
+      iconImageHref: '/img/ellipse12.svg',
+      iconImageSize: [20, 20]
+    });
+
+    myMap.geoObjects.add(myPlacemark);
+  }
+
+  ymaps.ready(init);
+
+  var selector = document.getElementById("selector");
+  var im = new Inputmask("+7(999) 999-99-99");
+
+  im.mask(selector);
+
+  new JustValidate('.contacts__form', {
+    rules: {
+      name: {
+        required: true,
+        minLength: 2,
+        maxLenght: 10,
+      },
+      tel: {
+        required: true,
+        function: (name, value) => {
+          const phone = selector.inputmask.unmaskedvalue();
+          return Number(phone) && phone.length === 10
+        }
+      },
+    },
+    messages: {
+      name: {
+        required: 'Как вас зовут?',
+        minLength: 'Минимум два символа',
+        maxLenght: 'Максимум тридцать символов'
+      },
+      tel: 'Укажите ваш телефон',
+      },
+  });
+
+  window.addEventListener('resize', () => {
+    heroSlider();
+    gallerySlider();
+    mobileSlider();
+    desctopSlider();
+    projectsSlider();
+    ymaps.ready(init);
   });
 
 })
