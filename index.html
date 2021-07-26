@@ -9,18 +9,18 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css">
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/css/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
   <link rel="stylesheet" href="/css/justValidateTooltip.css">
   <link rel="stylesheet" href="/css/style.css">
   <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
   <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
-  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=60445215-6d3a-4f88-87fe-8d52b72e5bc9"></script>
+  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=30ed5113-89fe-47f2-8690-79a03975d5dc&lang=ru_RU"></script>
+  <script src="/js/jquery.js"></script>
+  <script src="/js/jquery-ui.js"></script>
   <script src="/js/inputmask.js"></script>
   <script src="/js/just-validate.js"></script>
   <script src="/js/index.js"></script>
@@ -305,6 +305,11 @@
         </div>
         <div class="gallery__block gallery__block_right">
           <div class="swiper-container swiper-gallery">
+            <div class="swiper-nav">
+              <div class="swiper-button-prev gallery__button gallery__button_prev"></div>
+              <div class="swiper-pagination gallery__pagination"></div>
+              <div class="swiper-button-next gallery__button gallery__button_next"></div>
+            </div>
             <div class="swiper-wrapper">
               <div class="swiper-slide">
                 <button class="gallery__container" aria-label="Работа художника">
@@ -498,11 +503,6 @@
                   </picture>
                 </button>
               </div>
-            </div>
-            <div class="swiper-nav">
-              <div class="swiper-button-prev gallery__button gallery__button_prev"></div>
-              <div class="swiper-pagination gallery__pagination"></div>
-              <div class="swiper-button-next gallery__button gallery__button_next"></div>
             </div>
           </div>
         </div>
@@ -861,76 +861,76 @@
           </div>
           <div class="accordion__content accordion__content_complete">
             <ul class="catalog__list">
-              <li>
+              <li class="catalog__item-person">
                 <button class="catalog__painter" data-path="empty-card">Бенедетто ди Биндо</button>
               </li>
-              <li>
+              <li class="catalog__item-person">
                 <button class="catalog__painter" data-path="empty-card">Бергоньоне, Амброджо</button>
               </li>
-              <li>
+              <li class="catalog__item-person">
                 <button class="catalog__painter" data-path="empty-card">Биссоло, Франческо</button>
               </li>
-              <li>
+              <li class="catalog__item-person">
                 <button class="catalog__painter" data-path="empty-card">Больтраффио, Джованни</button>
               </li>
-              <li>
+              <li class="catalog__item-person">
                 <button class="catalog__painter" data-path="empty-card">Бонсиньори, Франческо</button>
               </li>
-              <li>
+              <li class="catalog__item-person">
                 <button class="catalog__painter" data-path="empty-card">Боттичини, Рафаэлло</button>
               </li>
-              <li>
+              <li class="catalog__item-person">
                 <button class="catalog__painter" data-path="empty-card">Брамантино</button>
               </li>
-              <li>
+              <li class="catalog__item-person">
                 <button class="catalog__painter" data-path="empty-card">Бреа, Людовико</button>
               </li>
-              <li>
+              <li class="catalog__item-person">
                 <button class="catalog__painter" data-path="empty-card">Бьяджо д’Антонио Туччи</button>
               </li>
-              <li>
+              <li class="catalog__item-person">
                 <button class="catalog__painter" data-path="empty-card">Веккьетта</button>
               </li>
-              <li>
+              <li class="catalog__item-person">
                 <button class="catalog__painter" data-path="empty-card">Андреа Верроккьо</button>
               </li>
-              <li>
+              <li class="catalog__item-person">
                 <button class="catalog__painter catalog__painter_activ" data-path="ghirlandaio">Доменико Гирландайо</button>
               </li>
-              <li>
+              <li class="catalog__item-person">
                 <button class="catalog__painter" data-path="empty-card">Беноццо Гоццоли</button>
               </li>
-              <li>
+              <li class="catalog__item-person">
                 <button class="catalog__painter" data-path="empty-card">Граначчи, Франческо</button>
               </li>
-              <li>
+              <li class="catalog__item-person">
                 <button class="catalog__painter" data-path="empty-card">Грегорио ди Чекко</button>
               </li>
-              <li>
+              <li class="catalog__item-person">
                 <button class="catalog__painter" data-path="empty-card">Джованни да Удине</button>
               </li>
-              <li>
+              <li class="catalog__item-person">
                 <button class="catalog__painter" data-path="empty-card">Джованни ди Паоло</button>
               </li>
-              <li>
+              <li class="catalog__item-person">
                 <button class="catalog__painter" data-path="empty-card">Джорджоне</button>
               </li>
-              <li>
+              <li class="catalog__item-person">
                 <button class="catalog__painter" data-path="empty-card">Парентино, Бернардо</button>
               </li>
-              <li>
+              <li class="catalog__item-person">
                 <button class="catalog__painter" data-path="empty-card">Пезеллино</button>
               </li>
-              <li>
+              <li class="catalog__item-person">
                 <button class="catalog__painter" data-path="empty-card">Пьетро Перуджино</button>
               </li>
-              <li>
+              <li class="catalog__item-person">
                 <button class="catalog__painter" data-path="empty-card">Перуцци, Бальдассаре</button>
               </li>
-              <li>
+              <li class="catalog__item-person">
                 <button class="catalog__painter" data-path="empty-card">Пизанелло</button>
               </li>
-              <li>
+              <li class="catalog__item-person">
                 <button class="catalog__painter" data-path="empty-card">Пинтуриккьо</button>
               </li>
             </ul>
@@ -1404,7 +1404,10 @@
           </article>
         </div>
       </div>
-      <button class="button button_events" data-status="on">Все события</button>
+      <div class="container-button">
+        <button class="button button_events" data-status="on">Все события</button>
+        <span class="container-button__outline container-button__outline_events"></span>
+      </div>
       <div class="events__pagination"></div>
     </section>
 
@@ -1416,8 +1419,8 @@
             <p class="public__category">Категории</p>
             <ul class="public__list">
               <li class="public__item">
-                <label class="public__descr">
-                  <input type="checkbox" class="public__check">
+                <label class="public__descr" for="bestsellers">
+                  <input type="checkbox" class="public__check" id="bestsellers">
                   <span class="public__text">Бестселлеры</span>
                   <span class="public__box"></span>
                 </label>
@@ -1427,8 +1430,8 @@
                 </button>
               </li>
               <li class="public__item">
-                <label class="public__descr">
-                  <input type="checkbox" class="public__check">
+                <label class="public__descr" for="art">
+                  <input type="checkbox" class="public__check" id="art">
                   <span class="public__text">Искусство</span>
                   <span class="public__box"></span>
                 </label>
@@ -1438,8 +1441,8 @@
                 </button>
               </li>
               <li class="public__item">
-                <label class="public__descr">
-                  <input type="checkbox" class="public__check">
+                <label class="public__descr" for="architecture">
+                  <input type="checkbox" class="public__check" id="architecture">
                   <span class="public__text">Архитектура</span>
                   <span class="public__box"></span>
                 </label>
@@ -1448,9 +1451,9 @@
                   <span class="public__close-line public__close-line_rigth"></span>
                 </button>
               </li>
-              <li class="public__item">
-                <label class="public__descr">
-                  <input type="checkbox" class="public__check">
+              <li class="public__item public__item_chosen">
+                <label class="public__descr" for="design">
+                  <input type="checkbox" class="public__check" id="design" checked>
                   <span class="public__text">Дизайн</span>
                   <span class="public__box"></span>
                 </label>
@@ -1460,8 +1463,8 @@
                 </button>
               </li>
               <li class="public__item">
-                <label class="public__descr">
-                  <input type="checkbox" class="public__check">
+                <label class="public__descr" for="fashion">
+                  <input type="checkbox" class="public__check" id="fashion">
                   <span class="public__text">Мода</span>
                   <span class="public__box"></span>
                 </label>
@@ -1471,8 +1474,8 @@
                 </button>
               </li>
               <li class="public__item">
-                <label class="public__descr">
-                  <input type="checkbox" class="public__check">
+                <label class="public__descr" for="children">
+                  <input type="checkbox" class="public__check" id="children">
                   <span class="public__text">Детям</span>
                   <span class="public__box"></span>
                 </label>
@@ -1482,8 +1485,8 @@
                 </button>
               </li>
               <li class="public__item">
-                <label class="public__descr">
-                  <input type="checkbox" class="public__check">
+                <label class="public__descr" for="literature">
+                  <input type="checkbox" class="public__check" id="literature">
                   <span class="public__text">Художественная&nbsp;литература</span>
                   <span class="public__box"></span>
                 </label>
@@ -1493,8 +1496,8 @@
                 </button>
               </li>
               <li class="public__item">
-                <label class="public__descr">
-                  <input type="checkbox" class="public__check">
+                <label class="public__descr" for="journalism">
+                  <input type="checkbox" class="public__check" id="journalism">
                   <span class="public__text">Публицистика</span>
                   <span class="public__box"></span>
                 </label>
@@ -1504,8 +1507,8 @@
                 </button>
               </li>
               <li class="public__item">
-                <label class="public__descr">
-                  <input type="checkbox" class="public__check">
+                <label class="public__descr" for="guides">
+                  <input type="checkbox" class="public__check" id="guides">
                   <span class="public__text">Путеводители</span>
                   <span class="public__box"></span>
                 </label>
@@ -1515,8 +1518,8 @@
                 </button>
               </li>
               <li class="public__item">
-                <label class="public__descr">
-                  <input type="checkbox" class="public__check">
+                <label class="public__descr" for="philosophy">
+                  <input type="checkbox" class="public__check" id="philosophy">
                   <span class="public__text">Философия</span>
                   <span class="public__box"></span>
                 </label>
@@ -1526,8 +1529,8 @@
                 </button>
               </li>
               <li class="public__item">
-                <label class="public__descr">
-                  <input type="checkbox" class="public__check">
+                <label class="public__descr" for="academic">
+                  <input type="checkbox" class="public__check" id="academic">
                   <span class="public__text">Учебная литература</span>
                   <span class="public__box"></span>
                 </label>
@@ -1537,8 +1540,8 @@
                 </button>
               </li>
               <li class="public__item">
-                <label class="public__descr">
-                  <input type="checkbox" class="public__check">
+                <label class="public__descr" for="magazines">
+                  <input type="checkbox" class="public__check" id="magazines">
                   <span class="public__text">Журналы и газеты</span>
                   <span class="public__box"></span>
                 </label>
@@ -1565,9 +1568,9 @@
         <div class="public__block public__block_right">
           <div class="public__swiper" data-mobile="false">
             <div class="public__nav">
-              <div class="public__button public__button_prev"></div>
+              <button class="public__button public__button_prev"></button>
               <div class="public__pagination"></div>
-              <div class="public__button public__button_next"></div>
+              <button class="public__button public__button_next"></button>
             </div>
             <div class="public__wrapper">
               <div class="public__slide">
@@ -1718,7 +1721,7 @@
 
     <section class="container projects">
       <h2 class="subtitle subtitle_projects">Проекты</h2>
-      <p class="text text_projects">Предварительные выводы: постоянное информационно-пропагандистское обеспечение нашей деятельности однозначно фиксирует необходимость своевременного выполнения сверхзадачи. А&nbsp;ещё независимые государства смешаны с не уникальными данными до степени совершенной неузнаваемости, из-за чего возрастает их&nbsp;статус бесполезности. Прежде всего, постоянное информационно&#8209;пропагандистское <span id="tt1" class="projects__tooltip">i</span> обеспечение нашей деятельности однозначно фиксирует необходимость экономической целесообразности принимаемых решений. И&nbsp;нет сомнений, что действия представителей оппозиции могут быть рассмотрены <span id="tt2" class="projects__tooltip">i</span> исключительно в&nbsp;разрезе маркетинговых и&nbsp;финансовых <span id="tt3" class="projects__tooltip">i</span> предпосылок. Банальные, но&nbsp;неопровержимые выводы, а&nbsp;также представители современных социальных резервов призывают нас к&nbsp;новым свершениям, которые, в&nbsp;свою очередь, должны быть смешаны с&nbsp;не&nbsp;уникальными данными до&nbsp;степени совершенной неузнаваемости. Подробнее: <a class="projects__link" href="#">blanchard-art.ru/projects/about</a></p>
+      <p class="text text_projects">Предварительные выводы: постоянное информационно-пропагандистское обеспечение нашей деятельности однозначно фиксирует необходимость своевременного выполнения сверхзадачи. А&nbsp;ещё независимые государства смешаны с не уникальными данными до степени совершенной неузнаваемости, из-за чего возрастает их&nbsp;статус бесполезности. Прежде всего, постоянное информационно-пропагандистское <span id="tt1" class="projects__tooltip">i</span> обеспечение нашей деятельности однозначно фиксирует необходимость экономической целесообразности принимаемых решений. И&nbsp;нет сомнений, что действия представителей оппозиции могут быть рассмотрены <span id="tt2" class="projects__tooltip">i</span> исключительно в&nbsp;разрезе маркетинговых и&nbsp;финансовых <span id="tt3" class="projects__tooltip">i</span> предпосылок. Банальные, но неопровержимые выводы, а&nbsp;также представители современных социальных резервов призывают нас к&nbsp;новым свершениям, которые, в&nbsp;свою очередь, должны быть смешаны с&nbsp;не&nbsp;уникальными данными до&nbsp;степени совершенной неузнаваемости. Подробнее: <a class="projects__link" href="#">blanchard-art.ru/projects/about</a></p>
       <p class="projects__partners">Партнёры проектов:</p>
       <div class="projects__box">
         <div class="projects__swiper">
@@ -1775,7 +1778,10 @@
             <div class="just-validate-tooltip-container">
               <input type="tel" class="contacts__phone" id="selector" name="phone" placeholder="Телефон*" data-validate-field="tel" data-validate-rules="phone">
             </div>
-            <button class="button contacts__button" type="submit">Заказать</button>
+            <div class="container-button container-button_contacts">
+              <button class="button contacts__button" type="submit">Заказать</button>
+              <span class="container-button__outline container-button__outline_contacts"></span>
+            </div>
           </form>
           <p class="contacts__social">Связаться в один клик</p>
           <ul class="contacts__list">
@@ -1804,10 +1810,10 @@
           </ul>
         </div>
         <div class="contacts__block contacts__block_right" id="map">
-
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="footer">

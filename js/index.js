@@ -301,6 +301,17 @@ document.addEventListener('DOMContentLoaded', function(){
 
   desctopSlider();
 
+  function choseDesign() {
+    if(window.matchMedia('(max-width: 767px)').matches) {
+      let designElement = document.querySelector('.public__item_chosen');
+      designElement.classList.add('public__item_chose');
+      // let inputElement = designElement.querySelector('.public__check');
+      // inputElement.setAttribute('checked', '');
+    }
+  };
+
+  choseDesign();
+
   let categoryElement = document.querySelector('.public__category');
   let itemElement = document.querySelectorAll('.public__item');
 
@@ -321,6 +332,7 @@ document.addEventListener('DOMContentLoaded', function(){
       }
     }
   });
+
 
   // projects section
 
@@ -395,7 +407,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
   function init(){
     var myMap = new ymaps.Map("map", {
-      center: getLocation(),
+      center: [55.761011994387864,37.61218414865425],
       zoom: 14,
       controls: [],
     });
@@ -447,7 +459,8 @@ document.addEventListener('DOMContentLoaded', function(){
     mobileSlider();
     desctopSlider();
     projectsSlider();
-    ymaps.ready(init);
+    // ymaps.ready(init);
+    choseDesign();
   });
 
 })
