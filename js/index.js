@@ -38,7 +38,9 @@ document.addEventListener('DOMContentLoaded', function(){
   let dropdownElements = document.querySelectorAll('.dropdown');
 
   for(let item of dropdownElements) {
-    new SimpleBar(item);
+    new SimpleBar(item, {
+      autoHide: false,
+    });
   }
 
 
@@ -305,8 +307,6 @@ document.addEventListener('DOMContentLoaded', function(){
     if(window.matchMedia('(max-width: 767px)').matches) {
       let designElement = document.querySelector('.public__item_chosen');
       designElement.classList.add('public__item_chose');
-      // let inputElement = designElement.querySelector('.public__check');
-      // inputElement.setAttribute('checked', '');
     }
   };
 
@@ -390,21 +390,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
   // contacts section
 
-  function getLocation() {
-    if(window.matchMedia('(max-width: 767px)').matches) {
-      return [55.761011994387864,37.61218414865425]
-    }
-    if(window.matchMedia('(max-width: 1023px)').matches) {
-      return [55.76161693131021,37.606733899935975]
-    }
-    if(window.matchMedia('(max-width: 1919px)').matches) {
-      return [55.76188310057035,37.614415746554634]
-    }
-    if(window.matchMedia('(min-width: 1920px)').matches) {
-      return [55.760467543099786,37.63761149011543]
-    }
-  };
-
   function init(){
     var myMap = new ymaps.Map("map", {
       center: [55.761011994387864,37.61218414865425],
@@ -459,7 +444,6 @@ document.addEventListener('DOMContentLoaded', function(){
     mobileSlider();
     desctopSlider();
     projectsSlider();
-    // ymaps.ready(init);
     choseDesign();
   });
 
