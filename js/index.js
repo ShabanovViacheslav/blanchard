@@ -111,6 +111,9 @@ document.addEventListener('DOMContentLoaded', function(){
 
   function gallerySlider () {
     new Swiper('.swiper-gallery', {
+      preloadImages: false,
+      lazy: true,
+      watchSlidesVisibility: true,
       pagination: {
         el: ".swiper-pagination",
         type: "fraction",
@@ -141,6 +144,33 @@ document.addEventListener('DOMContentLoaded', function(){
   }
 
   gallerySlider();
+
+
+  let btns = document.querySelectorAll('.gallery__container');
+  const modalOverlay = document.querySelector('.gallery__overlay');
+  const modals = document.querySelectorAll('.gallery__modal');
+
+  btns.forEach((el) => {
+    el.addEventListener('click', (e) => {
+      let path = e.currentTarget.getAttribute('data-path');
+
+      modals.forEach((el) => {
+        el.classList.remove('galery__modal_visible');
+      });
+
+      let modal = document.querySelector(`[data-target="${path}"]`);
+      modal.classList.add('gallery__modal_visible');
+
+      let modalClose = modal.querySelector('.close_modal');
+      modalClose.addEventListener('click', () => {
+        modal.classList.remove('gallery__modal_visible');
+        modalOverlay.classList.remove('gallery__overlay_visible');
+      });
+
+      modalOverlay.classList.add('gallery__overlay_visible');
+    });
+  });
+
 
   document.querySelectorAll('.catalog__country').forEach(function(tabElement){
     tabElement.addEventListener('click', function(event){
@@ -179,6 +209,22 @@ document.addEventListener('DOMContentLoaded', function(){
       });
     });
   })
+
+
+  function calcScroll() {
+    if(window.matchMedia('(max-width: 767px)').matches) {
+      document.querySelectorAll('.catalog__container').forEach(function(element){
+        element.querySelectorAll('.catalog__painter').forEach(function(tabElement){
+          tabElement.addEventListener('click', function(e) {
+            let path = e.currentTarget.dataset.path;
+            element.querySelector(`[data-target="${path}"]`).scrollIntoView(top);
+          });
+        });
+      });
+    }
+  }
+
+  calcScroll();
 
 // events section
 
@@ -390,57 +436,73 @@ document.addEventListener('DOMContentLoaded', function(){
 
   // contacts section
 
-  function init(){
-    var myMap = new ymaps.Map("map", {
-      center: [55.761011994387864,37.61218414865425],
-      zoom: 14,
-      controls: [],
-    });
+  let flag = 0;
 
-    var myPlacemark = new ymaps.Placemark([55.758468, 37.601088], {}, {
-      iconLayout: 'default#image',
-      iconImageHref: '/img/ellipse12.svg',
-      iconImageSize: [20, 20]
-    });
+  window.addEventListener('scroll', function() {
+    let scrollY = window.scrollY;
+    let mapOffset = document.querySelector('#map').offsetTop;
 
-    myMap.geoObjects.add(myPlacemark);
-  }
+    if((scrollY >= mapOffset - 1000) && (flag == 0)) {
+      function init(){
+        var myMap = new ymaps.Map("map", {
+          center: [55.761011994387864,37.61218414865425],
+          zoom: 14,
+          controls: [],
+        });
 
-  ymaps.ready(init);
+        var myPlacemark = new ymaps.Placemark([55.758468, 37.601088], {}, {
+          iconLayout: 'default#image',
+          iconImageHref: '/img/ellipse12.svg',
+          iconImageSize: [20, 20]
+        });
 
-  var selector = document.getElementById("selector");
-  var im = new Inputmask("+7(999) 999-99-99");
+        myMap.geoObjects.add(myPlacemark);
+      }
 
-  im.mask(selector);
+      ymaps.ready(init);
 
-  new JustValidate('.contacts__form', {
-    rules: {
-      name: {
-        required: true,
-        minLength: 2,
-        maxLenght: 10,
-      },
-      tel: {
-        required: true,
-        function: (name, value) => {
-          const phone = selector.inputmask.unmaskedvalue();
-          return Number(phone) && phone.length === 10
-        }
-      },
-    },
-    messages: {
-      name: {
-        required: 'Как вас зовут?',
-        minLength: 'Минимум два символа',
-        maxLenght: 'Максимум тридцать символов'
-      },
-      tel: 'Укажите ваш телефон',
-      },
-  });
+      var selector = document.getElementById("selector");
+      var im = new Inputmask("+7(999) 999-99-99");
+
+      im.mask(selector);
+
+      new JustValidate('.contacts__form', {
+        rules: {
+          name: {
+            required: true,
+            minLength: 2,
+            maxLenght: 10,
+          },
+          tel: {
+            required: true,
+            function: (name, value) => {
+              const phone = selector.inputmask.unmaskedvalue();
+              return Number(phone) && phone.length === 10
+            }
+          },
+        },
+        messages: {
+          name: {
+            required: 'Как вас зовут?',
+            minLength: 'Минимум два символа',
+            maxLenght: 'Максимум тридцать символов'
+          },
+          tel: 'Укажите ваш телефон',
+          },
+      });
+
+      flag = 1;
+    }
+  })
+
+
+
+
 
   window.addEventListener('resize', () => {
     heroSlider();
     gallerySlider();
+    calcScroll();
     mobileSlider();
     desctopSlider();
     projectsSlider();
