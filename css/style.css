@@ -43,6 +43,7 @@
   font-family: 'Open Sans', sans-serif;
   box-sizing: border-box;
   outline: none;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -221,31 +222,32 @@ a {
 }
 
 .nav__list_bottom > .nav__item:not(:last-child) {
-  margin-right: 14.2%;
+  margin-right: 14.5%;
 }
 
 .nav__link_bottom {
-  display: inline-block;
-  padding-right: 19px;
+  display: flex;
+  align-items: baseline;
   font-weight: normal;
 }
 
-.nav__link_bottom::after {
-  content: '';
-  position: absolute;
-  top: 31px;
-  margin-left: 5px;
-  width: 6px;
-  height: 6px;
-  border-right: 1px solid var(--light-color);
-  border-bottom: 1px solid var(--light-color);
-  transform: rotate(45deg);
-  transition: border-color .2s ease-in-out;
+.header__icon,
+.catalog__icon {
+  transform: rotate(0);
+  transition: transform .2s ease-in-out;
 }
 
-.nav__link_bottom-open::after {
-  top: 35px;
-  transform: rotate(225deg);
+.nav__link_bottom-open > .header__icon {
+  transform: rotate(180deg);
+  transition: transform .2s ease-in-out;
+}
+
+.header__pointer {
+  transition: stroke .2s ease-in-out;
+}
+
+.nav__link_bottom:active .header__pointer {
+  stroke: var(--active-color);
 }
 
 .dropdown {
@@ -262,7 +264,7 @@ a {
   transition-timing-function: ease-in-out;
 }
 
-.nav__link_bottom-open + .dropdown {
+.nav__link_bottom-open ~ .dropdown {
   visibility: visible;
   opacity: 1;
 }
@@ -466,6 +468,7 @@ a {
 .title {
   margin: 0;
   padding-bottom: 16px;
+  padding-left: 5px;
   font-weight: 700;
   font-size: 72px;
   line-height: 84px;
@@ -484,6 +487,7 @@ a {
 
 .container-button {
   position: relative;
+  padding-left: 5px;
 }
 
 .button {
@@ -516,7 +520,7 @@ a {
   position: absolute;
   z-index: 0;
   top: -4.5px;
-  left: -5px;
+  left: 0;
   width: 323px;
   height: 79px;
   display: inline-block;
@@ -543,7 +547,7 @@ a {
 }
 
 .subtitle {
-  margin-bottom: 23px;
+  margin-bottom: 20px;
   font-weight: normal;
   font-size: 48px;
   color: var(--subtitle-color);
@@ -589,7 +593,9 @@ a {
 }
 
 .gallery__descr {
-  color: var(--light-color)
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--light-color);
 }
 
 .choices {
@@ -616,6 +622,8 @@ a {
 }
 
 .choices__item {
+  font-weight: normal;
+  font-size: 16px;
   color: var(--light-color);
 }
 
@@ -630,8 +638,8 @@ a {
 .choices[data-type*=select-one]:before {
   content: '';
   position: absolute;
-  top: 40%;
-  right: 15px;
+  top: 45%;
+  right: 20px;
   width: 6px;
   height: 6px;
   border-right: 1px solid var(--light-color);
@@ -646,8 +654,8 @@ a {
 .choices[data-type*=select-one].is-open:before {
   content: '';
   position: absolute;
-  top: 50%;
-  right: 15px;
+  top: 55%;
+  right: 20px;
   width: 6px;
   height: 6px;
   border-right: none;
@@ -659,7 +667,7 @@ a {
 
 .text_gallery {
   position: absolute;
-  bottom: -10px;
+  bottom: -13px;
   width: 90%;
   color: var(--light-color);
   font-weight: 600;
@@ -763,25 +771,20 @@ a {
 }
 
 .gallery__button_prev::after,
+.gallery__button_next::after,
 .public__button_prev::after,
-.projects__button_prev::after {
-  content: "";
-  width: 7px;
-  height: 7px;
-  border-top: 1px solid var(--light-color);
-  border-right: 1px solid var(--light-color);
-  transform: translateX(2px) rotate(-135deg);
+.public__button_next::after,
+.projects__button_prev::after,
+.projects__button_next::after {
+  content: normal;
 }
 
-.gallery__button_next::after,
-.public__button_next::after,
-.projects__button_next::after {
-  content: "";
-  width: 7px;
-  height: 7px;
-  border-top: 1px solid var(--light-color);
-  border-right: 1px solid var(--light-color);
-  transform: translateX(-1px) rotate(45deg);
+.icon_prev {
+  transform: translateX(-1px);
+}
+
+.icon_next {
+  transform: translateX(1px);
 }
 
 .gallery__pagination,
@@ -874,11 +877,11 @@ a {
   transition: background-color .2s ease-in-out;
 }
 
-.close__line-modal_left {
+.close__line_modal-left {
   transform: rotate(45deg);
 }
 
-.close__line-modal_rigth {
+.close__line_modal-rigth {
   transform: rotate(-45deg);
 }
 
@@ -925,6 +928,7 @@ a {
 .subtitle_catalog {
   display: inline-block;
   margin-right: 36px;
+  margin-bottom: 23px;
 }
 
 .catalog__regions {
@@ -1027,7 +1031,7 @@ a {
 
 .catalog__container_activ {
   display: flex;
-  padding-top: 37px;
+  padding-top: 39px;
   animation-name: display-catalog;
   animation-duration: .4s;
   animation-timing-function: ease-in-out;
@@ -1109,7 +1113,7 @@ a {
 
 .ui-accordion .ui-accordion-header {
   margin: 0;
-  padding: 38px 0 44px 0;
+  padding: 38.5px 0 43.8px 0;
 }
 
 .ui-accordion-header {
@@ -1175,18 +1179,9 @@ a {
   transition-timing-function: ease-in-out;
 }
 
-.catalog__observe::after {
-  content: "";
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-top: 1px solid var(--dark-color);
-  border-right: 1px solid var(--dark-color);
-  transform: rotate(135deg);
-}
-
-.ui-accordion-header-active > .catalog__observe::after {
-  transform: rotate(-45deg);
+.ui-accordion-header-active .catalog__icon {
+  transform: rotate(180deg);
+  transition: transform .2s ease-in-out;
 }
 
 .ui-accordion-header:active {
@@ -1310,7 +1305,7 @@ a {
 
 .events {
   padding-top: 5px;
-  padding-bottom: 79px;
+  padding-bottom: 82px;
 }
 
 .events__swiper {
@@ -1381,7 +1376,7 @@ a {
 
 .events__box {
   position: relative;
-  padding: 12px 19px 50px 50px;
+  padding: 15px 19px 50px 50px;
   height: 400px;
   border: 1px solid var(--border-color);
   border-top: none;
@@ -1413,7 +1408,7 @@ a {
 .events__link {
   position: absolute;
   bottom: 0;
-  margin-bottom: 50px;
+  margin-bottom: 45px;
   border-bottom: 1px solid var(--hover-main-color);
   transition-property: color, background-color, border-color;
   transition-duration: .2s;
@@ -1423,6 +1418,10 @@ a {
 .events__link:active {
   border-bottom-color: var(--subtitle-color);
   color: var(--subtitle-color);
+}
+
+.container-button_events {
+  padding-left: 0;
 }
 
 .button_events {
@@ -1677,10 +1676,14 @@ a {
   color: var(--light-color);
 }
 
+.container-button_public {
+  padding-left: 0;
+}
+
 .button_public {
   position: relative;
   z-index: 1;
-  padding: 10px 20px;
+  padding: 8px 20px;
   margin-bottom: 3px;
   margin-left: 2px;
   background-color: transparent;
@@ -1704,10 +1707,10 @@ a {
 }
 
 .container-button__outline_public {
-  top: -3.5px;
+  top: -2.5px;
   left: 0;
   width: 126px;
-  height: 49px;
+  height: 44px;
   background-color: transparent;
   border: 2px solid var(--hover-color);
 }
@@ -1720,7 +1723,7 @@ a {
 /* projects */
 
 .projects {
-  padding-top: 83px;
+  padding-top: 87px;
   padding-bottom: 84px;
 }
 
@@ -1729,7 +1732,7 @@ a {
 }
 
 .text_projects {
-  margin-bottom: 19px;
+  margin-bottom: 22px;
   width: 66%;
 }
 
@@ -1873,14 +1876,12 @@ a {
   border-color: #ECECEC;
 }
 
-.projects__button_prev::after {
-  border-top-color: var(--dark-color);
-  border-right-color: var(--dark-color);
+.icon_projects-prev path {
+  stroke: var(--dark-color);
 }
 
-.projects__button_next::after {
-  border-top-color: var(--dark-color);
-  border-right-color: var(--dark-color);
+.icon_projects-next path {
+  stroke: var(--dark-color);
 }
 
 .projects__button:focus {
@@ -1977,6 +1978,10 @@ a {
 .contacts__name:focus,
 .contacts__phone:focus {
   background-color: #CACACA;
+}
+
+.container-button_contacts {
+  padding-left: 0;
 }
 
 .contacts__social {
@@ -2130,14 +2135,15 @@ a {
   .nav__link_bottom:hover {
     color: var(--hover-main-color);
   }
-  .nav__link_bottom:hover::after {
-    border-color: var(--hover-main-color);
+  .nav__link_bottom:hover:not(:focus) .header__pointer {
+    stroke: var(--hover-main-color);
+    transition: stroke .2s ease-in-out;
   }
   .nav__link_bottom:active {
     color: var(--active-color);
   }
-  .nav__link_bottom:active::after {
-    border-color: var(--active-color);
+  .nav__link_bottom:active .header__pointer {
+    stroke: var(--active-color);
   }
   .dropdown__link:hover {
     outline-color: var(--hover-main-color);
@@ -2381,11 +2387,18 @@ a {
   }
   .title {
     padding-bottom: 11px;
+    padding-left: 0;
   }
   .hero__description {
     padding-bottom: 133px;
     padding-left: 0;
     width: 75%;
+  }
+  .container-button {
+    padding-left: 0;
+  }
+  .container-button__outline {
+    left: -5px;
   }
   .container_about {
     padding-top: 86px;
@@ -2447,6 +2460,7 @@ a {
   }
   .subtitle_catalog {
     margin-right: 39px;
+    margin-bottom: 23px;
   }
   .catalog__regions {
     transform: translateY(-9px);
@@ -2468,7 +2482,6 @@ a {
   }
   .catalog__block_right {
     flex-basis: 47.5%;
-    padding-top: 2px;
   }
   .ui-accordion .ui-accordion-header {
     padding: 41px 0 42px 1px;
@@ -2532,6 +2545,9 @@ a {
   .events__link {
     margin-bottom: 55px;
   }
+  .container-button__outline_events {
+    left: 50%;
+  }
   .public {
     background-image: url(../img/birmingham-museums-trust-1024.jpg);
   }
@@ -2545,6 +2561,7 @@ a {
   }
   .subtitle_public {
     margin-bottom: 28px;
+    padding-left: 5px;
   }
   .public__form {
     margin-left: 4px;
@@ -2585,7 +2602,7 @@ a {
     left: -2px;
   }
   .projects {
-    padding-top: 87px;
+    padding-top: 85px;
   }
   .text_projects {
     width: 100%;
@@ -2843,10 +2860,10 @@ a {
     background-color: var(--dark-color);
     transition: background-color .2s ease-in-out;
   }
-  .close__line-modal_left {
+  .close__line_modal-left {
     transform: rotate(45deg);
   }
-  .close__line-modal_rigth {
+  .close__line_modal-rigth {
     transform: rotate(-45deg);
   }
 }
@@ -3021,7 +3038,7 @@ a {
   .container_public {
     flex-direction: column;
     padding-top: 89px;
-    padding-bottom: 73px;
+    padding-bottom: 78px;
   }
   .public__block_left {
     width: 100%;
@@ -3043,7 +3060,7 @@ a {
   }
   .text_projects {
     width: 99%;
-    margin-bottom: 23px;
+    margin-bottom: 28px;
   }
   .projects__partners {
     margin-bottom: 32px;
@@ -3326,9 +3343,8 @@ a {
     width: 30px;
     height: 30px;
   }
-  .catalog__observe::after {
-    width: 7px;
-    height: 7px;
+  .catalog__icon {
+    width: 45%;
   }
   .ui-accordion .ui-accordion-content {
     padding: 19px 0;
@@ -3517,7 +3533,7 @@ a {
     justify-content: space-between;
   }
   .public__slide {
-    margin-bottom: 47px;
+    margin-bottom: 50px;
   }
   .public__container {
     width: 130px;
@@ -3543,6 +3559,7 @@ a {
   }
   .button_public {
     padding-right: 34px;
+    padding-bottom: 9px;
     padding-left: 34px;
   }
   .container-button__outline {
@@ -3555,7 +3572,7 @@ a {
   }
   .text_projects {
     width: 100%;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
     font-size: 16px;
     line-height: 32px;
   }

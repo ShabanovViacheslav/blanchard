@@ -489,6 +489,17 @@ document.addEventListener('DOMContentLoaded', function(){
           },
           tel: 'Укажите ваш телефон',
           },
+        submitHandler: function(form) {
+            let formData = new FormData(form);
+
+            let xhr = new XMLHttpRequest();
+
+            xhr.open('POST', 'mail.php', true);
+
+            xhr.send(formData);
+
+            form.reset();
+          }
       });
 
       flag = 1;
