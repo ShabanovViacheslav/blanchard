@@ -489,16 +489,17 @@ document.addEventListener('DOMContentLoaded', function(){
           },
           tel: 'Укажите ваш телефон',
           },
-        submitHandler: function(form) {
-            let formData = new FormData(form);
-
-            let xhr = new XMLHttpRequest();
-
-            xhr.open('POST', 'mail.php', true);
-
-            xhr.send(formData);
-
-            form.reset();
+        submitHandler: function(form, values, ajax) {
+          ajax({
+            url: 'mail.php',
+            method: 'POST',
+            data: values,
+            async: true,
+            callback: function()  {
+              form.reset();
+              alert("Ваше сообщение успешно отправлено");
+            }
+          });
           }
       });
 

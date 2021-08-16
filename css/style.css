@@ -336,6 +336,10 @@ a {
   opacity: 1;
 }
 
+.simplebar-offset {
+  padding-bottom: 40px;
+}
+
 /* simpleBar end */
 
 .header__form {
