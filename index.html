@@ -74,7 +74,6 @@
             <svg class="header__svg" width="13" height="13" viewbox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M5.12056 9.09278L6.13889 10.1111L9.75 6.5L6.13889 2.88889L5.12056 3.90722L6.98389 5.77778H0V7.22222H6.98389L5.12056 9.09278ZM11.5556 0H1.44444C0.642778 0 0 0.65 0 1.44444V4.33333H1.44444V1.44444H11.5556V11.5556H1.44444V8.66667H0V11.5556C0 12.35 0.642778 13 1.44444 13H11.5556C12.35 13 13 12.35 13 11.5556V1.44444C13 0.65 12.35 0 11.5556 0Z" fill="white"/>
             </svg>
-            <span class="header__outline"></span>
           </div>
         </div>
       </div>
@@ -300,10 +299,7 @@
         <p class="hero__description">
           Мы вынуждены отталкиваться от того, что реализация намеченных плановых заданий создаёт предпосылки для новых предложений.
         </p>
-        <div class="container-button">
-          <a class="button button_hero" href="#">Подписаться на рассылку</a>
-          <span class="container-button__outline"></span>
-        </div>
+        <a class="button button_hero" href="#">Подписаться на рассылку</a>
       </div>
     </section>
 
@@ -1646,10 +1642,7 @@
           </article>
         </div>
       </div>
-      <div class="container-button container-button_events">
-        <button class="button button_events" data-status="on">Все события</button>
-        <span class="container-button__outline container-button__outline_events"></span>
-      </div>
+      <button class="button button_events" data-status="on">Все события</button>
       <div class="events__pagination"></div>
     </section>
 
@@ -1837,10 +1830,7 @@
                     </div>
                     <p class="public__right-side">620&nbsp;руб</p>
                   </div>
-                  <div class="container-button container-button_public">
-                    <button class="button button_public">Заказать</button>
-                    <span class="container-button__outline container-button__outline_public"></span>
-                  </div>
+                  <button class="button button_public">Заказать</button>
                 </div>
               </div>
               <div class="public__slide">
@@ -1857,10 +1847,7 @@
                     </div>
                     <p class="public__right-side">2450&nbsp;руб</p>
                   </div>
-                  <div class="container-button container-button_public">
-                    <button class="button button_public">Заказать</button>
-                    <span class="container-button__outline container-button__outline_public"></span>
-                  </div>
+                  <button class="button button_public">Заказать</button>
                 </div>
               </div>
               <div class="public__slide">
@@ -1877,10 +1864,7 @@
                     </div>
                     <p class="public__right-side">2200&nbsp;руб</p>
                   </div>
-                  <div class="container-button container-button_public">
-                    <button class="button button_public">Заказать</button>
-                    <span class="container-button__outline container-button__outline_public"></span>
-                  </div>
+                  <button class="button button_public">Заказать</button>
                 </div>
               </div>
               <div class="public__slide">
@@ -1897,10 +1881,7 @@
                     </div>
                     <p class="public__right-side">1100&nbsp;руб</p>
                   </div>
-                  <div class="container-button container-button_public">
-                    <button class="button button_public">Заказать</button>
-                    <span class="container-button__outline container-button__outline_public"></span>
-                  </div>
+                  <button class="button button_public">Заказать</button>
                 </div>
               </div>
               <div class="public__slide">
@@ -1917,10 +1898,7 @@
                     </div>
                     <p class="public__right-side">1450&nbsp;руб</p>
                   </div>
-                  <div class="container-button container-button_public">
-                    <button class="button button_public">Заказать</button>
-                    <span class="container-button__outline container-button__outline_public"></span>
-                  </div>
+                  <button class="button button_public">Заказать</button>
                 </div>
               </div>
               <div class="public__slide">
@@ -1937,10 +1915,7 @@
                     </div>
                     <p class="public__right-side">3200&nbsp;руб</p>
                   </div>
-                  <div class="container-button container-button_public">
-                    <button class="button button_public">Заказать</button>
-                    <span class="container-button__outline container-button__outline_public"></span>
-                  </div>
+                  <button class="button button_public">Заказать</button>
                 </div>
               </div>
               <div class="public__slide">
@@ -1957,10 +1932,7 @@
                     </div>
                     <p class="public__right-side">2200&nbsp;руб</p>
                   </div>
-                  <div class="container-button container-button_public">
-                    <button class="button button_public">Заказать</button>
-                    <span class="container-button__outline container-button__outline_public"></span>
-                  </div>
+                  <button class="button button_public">Заказать</button>
                 </div>
               </div>
             </div>
@@ -2052,11 +2024,21 @@
             <div class="just-validate-tooltip-container">
               <input type="tel" class="contacts__phone" id="selector" name="phone" placeholder="Телефон*" data-validate-field="tel" data-validate-rules="phone">
             </div>
-            <div class="container-button container-button_contacts">
-              <button class="button contacts__button" type="submit">Заказать</button>
-              <span class="container-button__outline container-button__outline_contacts"></span>
-            </div>
+            <button class="button contacts__button" type="submit">Заказать</button>
           </form>
+          <div class="contacts__modals">
+            <div class="contacts__overlay">
+              <div class="contacts__modal">
+                <div class="close close_modal-contacts">
+                  <button class="close__link close__link_modal">
+                    <span class="close__line close__line_modal close__line_modal-left"></span>
+                    <span class="close__line close__line_modal close__line_modal-rigth"></span>
+                  </button>
+                </div>
+                <p class="contacts__message">Ваше сообщение успешно отправлено</p>
+              </div>
+            </div>
+          </div>
           <p class="contacts__social">Связаться в один клик</p>
           <ul class="contacts__list">
             <li class="contacts__item">

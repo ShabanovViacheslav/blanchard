@@ -438,6 +438,20 @@ document.addEventListener('DOMContentLoaded', function(){
 
   let flag = 0;
 
+  let contactsOverlay = document.querySelector('.contacts__overlay');
+  let contactsModal = document.querySelector('.contacts__modal');
+  let contactsClose = document.querySelector('.close_modal-contacts');
+
+  contactsClose.addEventListener('click', () => {
+    contactsModal.classList.remove('contacts__modal_visible');
+    contactsOverlay.classList.remove('contacts__overlay_visible');
+  })
+
+  function getModal () {
+    contactsOverlay.classList.add('contacts__overlay_visible');
+    contactsModal.classList.add('contacts__modal_visible');
+  };
+
   window.addEventListener('scroll', function() {
     let scrollY = window.scrollY;
     let mapOffset = document.querySelector('#map').offsetTop;
@@ -497,7 +511,7 @@ document.addEventListener('DOMContentLoaded', function(){
             async: true,
             callback: function()  {
               form.reset();
-              alert("Ваше сообщение успешно отправлено");
+              getModal();
             }
           });
           }
@@ -506,10 +520,6 @@ document.addEventListener('DOMContentLoaded', function(){
       flag = 1;
     }
   })
-
-
-
-
 
   window.addEventListener('resize', () => {
     heroSlider();
